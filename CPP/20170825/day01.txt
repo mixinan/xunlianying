@@ -1,0 +1,589 @@
+﻿day01
+
+郭兴楠
+微信：gxingnan
+
+2天安排：
+第一天：linux命令
+第二天：vi编辑器 C语言介绍
+
+
+linux命令
+	linux和windows区别
+
+	windows常用快捷键：
+		win + D   显示桌面
+		win + E   打开计算机
+		win + R   运行
+		backspace 删除左边内容
+		delete    删除右边内容
+		home      行首
+		end       行末
+		ctrl + home  文档头部
+		ctrl + end   文档尾部
+	
+	切换文件夹
+	cd
+	change directory
+
+	查看当前的路径
+	pwd
+	print working directory
+
+	创建一个文件
+	touch a.txt
+	touch a.txt b.txt c.txt
+
+	删除文件（remove）
+	rm a.txt
+	rm a.txt b.txt c.txt
+
+	创建一个文件夹（目录）
+	mkdir 
+	make directory
+	mkdir a
+	mkdir a b c
+
+	删除一个空文件夹（目录）
+	rmdir a
+	rmdir a b c
+
+	查看目录里的所有内容（包括文件、文件夹）
+	ls
+	list
+
+	查看文件内容
+	cat a.txt
+
+	修改权限
+	chmod 666 a.txt
+
+	666   rw-rw-rw-
+	u+x
+	a+x
+	g-x
+	o=rw-
+
+	编辑文件内容
+	vi a.txt
+
+	查看用户
+	who
+
+	调整字体
+	Ctrl + 加号（Ctrl + Shift + 加号）
+	Ctrl + 减号
+
+	调出终端的快捷键
+	Ctrl + Alt + T
+	右键：锁定在启动器
+
+	代码补全
+	Tab
+	只需要输入前几个字母，
+	就可以通过Tab自动补全
+
+	命令查找history
+	上下方向键
+
+	命令历史记录
+	history
+	打印输入过的命令（历史记录）
+		每条命令，有序号
+		通过 “!序号”（如：!52） 
+		可以执行对应的命令（执行第52条命令）
+
+	
+	清屏
+	clear
+		快捷键：Ctrl + L
+
+
+	=================================
+
+	命令：
+		在Linux里，通过“终端”输入“命令”去操作，
+		鼠标无法使用，只能通过键盘
+
+		写法：
+			命令 [选项] [参数]
+			选项和参数，可以不写
+			如： cat    a.txt
+				  命令   参数
+				  touch  a.txt  创建a.txt文件
+				  ls            查看所有内容
+		
+		命令区分大小写
+			如：ls 查看目录里的内容
+					如果写成LS  出错
+
+		
+		linux对文件后缀(.txt   .mp3)不敏感
+			a.txt  a.mp3  a.a  a.o
+
+		
+		man   查看手册
+			用法：man  pwd
+					查看pwd的解释和用法
+
+					退出man模式
+						按q键 (quit)
+===============================
+
+	创建文件   touch
+
+		写法：touch a.txt
+				创建文件，名为a.txt
+
+				touch  b.txt  c.txt  d.txt
+				同时创建文件b.txt, c.txt, d.txt
+
+	
+	删除文件   rm （remove）
+
+		写法：rm a.txt
+				删除a.txt文件
+
+				rm  b.txt  c.txt  d.txt
+				同时删除文件b.txt, c.txt, d.txt
+
+	
+	创建文件夹
+		mkdir (make directory)
+		make 创建
+		directory 目录（文件夹）
+
+		如：mkdir a
+			 创建a文件夹
+			 mkdir a b c
+			 同时创建文件夹a、b、c
+
+		特殊：创建多层目录  a/aa/aaa   a.txt
+			原始办法：
+				mkdir a
+				cd a
+				mkdir aa
+				cd aa
+				mkdir aaa
+				cd aaa
+				touch a.txt
+			
+			快捷办法：
+				(错误)mkdir a/aa/aaa  目录不存在
+				mkdir  -p  a/aa/aaa   缺啥补啥
+				touch a/aa/aaa/a.txt
+	
+	删除(空)文件夹（几乎不用）
+		rmdir
+		remove 移除，删除
+		directory 目录（文件夹）
+
+		如：rmdir a
+			 删除a文件夹（空）
+			 rmdir a b c
+			 同时删除（空）文件夹a、b、c
+
+	
+	rmdir只能删除空目录（没有内容）
+
+	一般采用如下方式：
+		rm -r dirA
+		删除目录dirA
+
+
+	查看当前所在的路径（目录）
+	pwd
+	print 打印
+	working 正在工作的（当前所在的）
+	directory 目录
+
+	
+	切换目录（文件夹、路径）
+	cd
+	change 改变
+	directory 目录（文件夹）
+
+
+	几个特殊的目录
+		~     当前用户的主目录
+		cd ~  切换到当前用户的主目录
+		cd    同上，切换到用户主目录
+
+		/     根目录
+
+
+
+	/home/tarena
+
+	/       根目录
+	home    根目录下的home目录
+	/       目录之间的分隔符
+	tarena  home目录里面的子目录tarena
+
+
+
+	切换到根目录        cd  /
+	查看内容            ls
+
+
+	返回之前的目录      cd -
+	返回上级目录        cd ../
+
+	当前目录（原地踏步）  ./
+	上级目录（往上一级）  ../
+	上级目录（往上两级）  ../../
+
+        ctrl + c 结束当前进程
+
+
+	查看目录里的内容
+		ls  (list)
+		ls  
+		
+		后面不加参数，
+		查看当前目录下所有内容
+
+		ls  /home/tarena
+		如果后面有参数（目录名或文件名），
+		指查看该目录下所有内容
+
+
+
+		命令 [选项]  [参数]
+		ls    -a      
+		ls    -l		  
+		ls    -al
+
+		加上 -a 选项，
+		查看所有内容（包含隐藏文件）
+		也可以写作 la
+		等价于  ls -a
+
+		加上 -l 选项，
+		查看详细信息
+		也可以写作  ll（是L,不是1）
+		等价于  ls -l
+
+		-rw-rw-r-- 1 tarena tarena    0  7月 28 18:23 d.txt
+		-rw-rw-r--   权限
+
+
+
+		加上 -al（相当于 -a 和 -l）选项，
+		查看所有文件的详细信息
+
+
+		ls后面也可以跟文件名
+			如：ls -l a.txt
+				 显示a.txt文件的详细信息
+
+
+
+
+
+	练习：
+		1.切换到用户"主目录"
+		2.创建两个文件夹 aa  bb
+		3.在aa 里创建文件 a.txt
+		  在bb 里创建文件夹 bbcc
+		  在bbcc 里创建文件bbcc.txt
+
+
+	
+	sudo  apt-get  install  tree
+	以树状形式显示目录层次
+
+
+
+	提示：cd   mkdir  touch   ../
+
+
+	“回声”  echo
+		用法： echo hello
+				 在终端窗口打印 hello
+	
+	输出重定向  
+		>     覆盖输出
+		>>    换行追加输出
+		用法：
+			echo hello > a.txt
+			效果：a.txt 内容变为 “hello”
+
+			echo hello >> a.txt
+			效果：在a.txt结尾追加 “hello”
+
+
+	查看文件内容
+		cat
+		用法：cat a.txt
+				查看a.txt的内容，
+				显示在终端窗口里
+
+
+	
+	通配符：
+		* 可以匹配任何长度的字符
+		? 只能匹配一位字符
+
+		使用： a.txt b.txt a.mp3 c.mp3 a.mp4 d.mp4
+
+				删除所有的txt文件
+					rm a.txt b.txt
+					rm *.txt
+
+				删除所有的mp3和mp4文件
+					rm *.mp?
+		
+		练习：
+			1.创建一个文件夹test
+			2.进入test文件夹，
+			  创建5个txt文件，4个mp3文件，
+			  3个mp4文件，2个png文件
+			3.把所有的txt文件的名字，写在a.a文件里
+			  把所有的mp3和mp4文件名字，写在b.b文件里
+			  显示所有的png文件到终端窗口
+
+		提示：mkdir  cd  touch  
+				ls xxxx > a.a    (?  *)
+
+
+	
+	一些不常用命令：
+		date
+		日期时间
+
+
+		cal
+		日历 （calendar）
+
+		cal 后面没有参数 
+		显示系统当前月份的日历
+			   
+		cal 1 2017
+		显示2017年1月的日历
+
+
+		head
+		查看文件前10行的内容（默认是10行）
+		head -n a.txt
+		查看文件前n行的内容（n是整数）
+
+		tail
+		查看文件末尾10行的内容（默认是10行）
+		tail -n a.txt
+		查看文件末尾n行的内容（n是整数）
+
+		more a.txt
+		部分查看，按 回车 继续查看
+
+
+		管道 |
+		命令1 | 命令2
+		把命令1的结果，作为参数，交给命令2
+
+		ls -a | head
+
+		
+		
+		交互式：一句对应一句
+		脚本式：先把所有命令写到文件（.sh），
+				  然后执行该文件
+		脚本：
+			写法：创建一个.sh后缀的文件
+					把命令写在文件里
+					执行.sh文件
+
+
+
+
+
+		
+		修改权限，使文件可以直接执行
+			chmod u+x 文件
+		执行文件
+			./文件
+
+		
+		练习：创建脚本文件  test.sh
+		      添加3条命令：
+				pwd
+				ls
+				date
+		      执行该脚本文件
+		
+
+			
+
+	文件的详细信息：
+	-rw-rw-r--
+	-         rw-       rw-         r--
+	文件类型  用户权限  用户组权限  其它用户权限
+	          user  u   group  g    other  o
+
+		  a all 所有(包含u,g,o)
+
+
+	- 文件
+	d 目录
+	l 链接
+
+	权限：  r   read    读
+		w   write   写
+		x   execute 执行
+		-   无权限
+
+	修改权限：
+		chmod u+x a.sh
+		chmod g-w  a.sh
+		chmod a=rwx a.sh
+
+		+  增加权限
+		-  删除权限
+		=  设置权限
+
+	练习： 创建一个文件  abc.txt
+		修改权限为   rwxrw-r--
+
+		
+
+
+
+		通过数字设置权限：
+			rwx
+			421
+
+		rwx  rw- r--
+		7    6   4
+
+
+
+		666
+		rw-rw-rw-
+
+		763
+		rwxrw--wx
+
+
+
+		
+		rw- rw- r--
+		6   6   4
+
+
+		r-- --- --x
+		4   0   1
+
+
+
+		666
+		rw-rw-rw-
+
+		753
+		rwxr-x-wx
+		
+		chmod 666 a.sh
+		chmod 444 a.sh
+
+
+
+		创建文件b.txt
+		通过数字修改权限为r--rw---x
+
+
+
+
+	练习：创建脚本文件 t.sh
+			写两个命令：
+				date
+				pwd
+			运行 t.sh
+				./t.sh
+
+			运行之前，需要修改权限
+				chmod u+x t.sh
+				
+
+
+	文件操作：
+		复制  cp (copy)  
+		用法：
+			cp a.txt /home/tarena/
+			cp a.txt dirA/b.txt
+
+
+	练习：创建文件   dd.txt
+	       1.把dd.txt复制一份在当前目录，
+		 命名为dddd.txt
+	       2.把dd.txt复制一份到上一级目录里
+		 不需要重命名
+	       3.创建文件夹dddd
+		 把dd.txt复制到dddd里一份
+
+
+
+		
+
+
+
+		移动  mv (move)
+		用法：
+			mv a.txt b.txt  (类似于重命名)
+			mv a.txt dirA   (把a.txt移动到dirA目录)
+
+	
+	打包压缩
+
+		打包：
+			tar cvf a.tar dirA dirB
+
+
+
+		展开：
+			tar xvf a.tar
+
+
+
+
+
+		打包并压缩：以zip压缩格式
+			tar zcvf a.tar.gz dirA dirB
+		解压并展开：
+			tar zxvf a.tar.gz
+
+
+		练习：
+			创建一个文件夹aaa
+			(mkdir aaa)
+
+			进入aaa，创建文件a.txt b.mp3 c.png
+			(cd aaa)
+			(touch a.txt b.mp3 c.png)
+
+			把aaa打包成aaa.tar
+			(cd ../)
+			(tar cvf aaa.tar aaa)
+
+			把aaa打包并压缩成aaa.tar.gz
+			(tar zcvf aaa.tar.gz aaa)
+
+			对比两者的大小
+			(ll aaa.tar aaa.tar.gz)
+
+	
+	路径：
+		相对路径  以当前所在的位置作参考
+		绝对路径  以根目录（/）作为开始
+
+		cd dirA (当前所在目录里的dirA)
+		cd /home/tarena/dirA (绝对路径)
+
+	
+	链接： link
+		ln a.txt b.txt
+		修改一个，另一个跟着变动
+		硬链接，可以独立存在
+
+		软连接，不能独立存在
+		ln -s b.txt a.txt
+
+		
