@@ -1,0 +1,225 @@
+-    rw- rw- r--
+类型
+
+d           l    -
+directory  链接  文件
+目录   
+
+
+
+#include <stdio.h>
+int main(){
+    printf("hello wolrd!");
+    return 0;
+}
+   
+
+
+   gcc
+   编译器（翻译官）
+
+   gcc  -E  test.c
+
+   gcc test.c   默认生成 a.out
+
+   gcc test.c  -o  test.out
+
+
+
+   #include <stdio.h>
+   预处理指令
+   编译时，首先处理stdio.h头文件
+   把stdio.h的内容拷贝过来
+   跟底下我们自己写的代码合并成一个新文件
+   然后再编译
+
+
+
+   如果是系统头文件，用<>
+   如果是用户写的，用" "
+
+
+   验证：
+   		自己写一个 a.h 头文件
+   		然后用 gcc -E a.c 来编译
+
+
+   int
+   integer  整数（一种数据类型）
+
+   main
+   主函数，程序执行的入口
+
+
+   ()
+   参数列表
+   执行具体流程时，需要用到的条件
+
+
+
+   {}
+   执行该函数的具体流程
+
+
+   return
+   作用1：表示函数执行的成功与否
+   			一般用0表示成功
+   			用-1表示失败
+   作用2：表示执行结果（比如算术运算）
+
+
+   跟 函数名 前面的数据类型 相对应
+
+
+
+   爆米花   做爆米花(玉米,糖,电,玉米机){
+   		插电;
+   		开机;
+   		洗玉米;
+   		放玉米和糖;
+   		加热10分钟;
+   		return 一桶爆米花;
+   }
+
+注意：
+	代码段落用{}分组，包裹起来
+	有(){}的，先把括号写全，再往里补充内容
+	有嵌套关系的，要用tab缩进
+	一行只写一条语句，以分号结束
+
+
+   int main(){
+   		printf("hello");
+   		return 0;
+   }
+
+
+   变量：
+   int a=6;
+   a=7;
+
+   值可以变化  a是一个内存地址
+
+   int a;
+   声明一个变量
+   它是整数类型，它的名字是a
+   a=7;
+   = 是赋值符号，把右边的值给左边变量
+
+   int a=7;
+
+
+
+   变量的命名：
+   		1、不能跟系统的关键字一样
+   			return main int for if
+   		2、以字母、下划线开头
+   			后面可以是数字、字母、下划线
+   		3、大小写要注意
+   		4、必须是一个单词，不能有空格
+   			驼峰命名法  HelloWorldTest
+   			下划线式    hello_world_test
+   		5、不要用汉语
+   		6、见名知意
+   			buttonNumber
+   			width
+   			height
+   			weight
+
+
+   	转义字符  \
+   	\n 换行
+   	\t 制表符
+   	\\  \本身
+   	\2   "
+   	\'   '
+
+
+   	程序里的注释（系统不看，无视它）
+   		（给程序员看）
+   		单行注释   //注释内容
+   		多行注释   /*注释的内容*/
+
+   	printf(""");
+   	printf("\n");
+
+
+
+
+   	int height=8;
+   	int width=6;
+
+   	int height;
+   	height=8;
+   	int width;
+   	width=6;
+
+
+   	int width=6,height=8;
+
+
+   	height + width
+
+
+   	printf("hello");
+
+   	printf("hello%dworld%d",width,height);
+
+   	%d  整数的占位符
+
+   	//底下这个函数，实现了一个加法功能s
+   	/*
+   		底下。。。
+   		作者：
+   		时间：
+   	*/
+
+
+   	int add(int a, int b){
+   		//声明一个变量c
+   		int c = a+b;
+   		return c;
+   	}
+
+   	add(5,6);
+
+
+练习：声明两个int变量，width  height
+			分别给它们赋值
+		打印出 长方形的周长和面积
+
+		int width = 6;
+		int height = 8;
+
+		int zhouchang = (width+height)*2;
+		int mianji = width*height;
+
+		printf("zhouchang=%d\n",zhouchang);
+
+
+		int a;
+		scanf("%d",&a);
+
+		& 取地址符号，取a所代表的内存地址
+
+
+		长方形案例改造：
+			声明width,height
+			分别输入width,height的值
+			打印周长和面积
+
+		scanf("%d",&width);
+
+		stdio.h
+
+		i input
+		o output
+
+		int  整数
+		float  浮点数（小数）  3.14
+		%f  
+		%g 
+
+
+
+

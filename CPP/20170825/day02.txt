@@ -10,7 +10,7 @@ vi(vim)的使用
 		通过vi命令，进入文件时的状态
 		在其它模式下，按Esc键后的状态
 		在其它模式互相切换时，需要用正常模式过渡
-		在此模式下，可以复制、粘贴、跳转等
+		在此模式下，可以复制、粘贴、剪切、跳转等
 	
 	插入模式：
 		在正常模式下，按i键进入编辑模式（insert）
@@ -92,6 +92,36 @@ vi(vim)的使用
 			查找要找的字 page up(page down)
 
 	
+	
+	练习： 创建文件 test.txt
+			写5行中文
+			保存并退出
+			通过cat查看文件内容
+	
+	
+	
+	
+	
+	VB
+	C     .c
+	C++     .cpp
+	Java   .java
+	JavaScript   .js
+	Html     .html
+	CSS     .css
+	php		.php
+	python   .py
+	c#
+	go
+	......
+	
+	
+	return    int    main
+	
+	01010110101010101
+	
+	
+	
 
 C语言基础：
 	xx.c
@@ -113,13 +143,39 @@ C语言基础：
 	}
 
 
-	int    整数
+	int    整数   integer
 	main   主函数
 	()
 	{}
 	return 0
+	
+	
+	
+	爆米花   做爆米花（玉米，糖，火）{
+		
+		//洗玉米
+		//融化糖
+		//生火
+		//烤
+		//得到爆米花
+		
+		return 一斤爆米花;
+	}
+	
+	
+	
+	
 
 	int a=5;
+	
+	
+	int b=6,c=7,d=11;
+	相当于：
+		int b=6;
+		int c=7;
+		int d=11;
+		
+		
 
 	int 整数
 	a   标识符（变量名）
@@ -149,13 +205,15 @@ C语言基础：
 
 
 
-
+	
 	标识符（变量）的命名：
 		1.不能与系统关键字一样
-			int if while for
+			int if while for main 
 		2.必须以_或字母开头
+		
 			后面可以用数字、字母或_
-			int   _4  5a  b
+			int  _4  5a  b
+			
 		3.要见名知意
 			buttonNumber
 		4.驼峰命名法、烤串命名法
@@ -182,7 +240,9 @@ C语言基础：
 		4.语句可以分组管理，比如{}
 		5.C语言对大小写敏感
 
-
+	转义字符   
+		\n  换行
+		\t  制表符
 
 
    #include <stdio.h>
@@ -190,6 +250,7 @@ C语言基础：
        printf("hello world!\n");
        return 0;
    }
+   
 
 
 	预处理指令：
@@ -208,15 +269,28 @@ C语言基础：
 		-c   处理预处理指令、完成编译，
 				生成a.o文件
 			gcc  -c  a.c
+			
+			
+			
+			
+			
 		
 		-o   处理预处理指令、编译、重命名
 			gcc  a.c  -o  hello
 
+			
+			
 	
 	注释(给程序员看，对代码没有影响)：
 		单行注释  //注释内容
 		多行注释  /*注释内容*/
 
+		
+		
+		
+		
+		
+		
 
 	占位符：
 		%d   整数
@@ -286,4 +360,139 @@ C语言基础：
 			3.同上，得到kuan
 			4.打印出“周长= ”
 			5.打印出“面积= ”
+			
+			
+	==
+	>
+	<
+	<=
+	>=
+	!=
+	
+	n=5;
+	m=6;
+	
+	printf("%d",n>m);   //0
+	printf("%d",n<m);   //1
+	
+	布尔值：
+	
+	 0   1 
+	 假 真
+	 
+	 True
+	 False
+	 
+	 true
+	 false
+	
+			
+	流程控制
+		if..else..
+		
+			int n;
+			scanf("%d",&n);
+		
+			if(n==1){
+				printf("春天");
+			}else{
+				printf("不是春天");
+			}
+			
+		
+		if(){
+		
+		}else if(){
+		
+		}else if(){
+		
+		}else{
+			
+		}
+		
+		
+		
+	练习：请输入 分数 score
+		如果>70,打印“良好”
+		否则，如果>60,打印“及格”
+		否则，打印“不及格”
+		
+		if(){
+		
+		}else if(){
+		
+		}else{
+		
+		}
+		
+		
+		
+		
+		switch..case..
+			
+			
+			
+			switch(n){
+				case 1:
+					printf("周一");
+				break;
+				case 2:
+					printf("周二");
+				break;
+				case 3:
+					printf("周三");
+				break;
+				case 4:
+					printf("周四");
+				break;
+				case 5:
+					printf("周五");
+				break;
+				case 6:
+					printf("周六");
+				break;
+				case 7:
+					printf("周日");
+				break;
+				default:
+					printf("输入有误");
+				break;
+			}
+			
+		
+	循环
+		for    已知要循环多少次
+		while  当次数不定时，一般用while
+		
+		++
+		--
+		
+		i++  等价于  i=i+1
+		
+		
+		int i;
+		for(i=10; i>=1; i--){
+			printf("%d",i);
+		}
+		
+		
+		布尔值：  0    1
+		
+		
+		while(1){
+			printf("hello \n");
+		}
+			
+			
+	假随机： rand()
+			
+	随机值：
+		#include <time.h>
+		srand(time(0));
+		rand()
+		
+		1-99之间： rand()%100
+			
+			
+	
 	

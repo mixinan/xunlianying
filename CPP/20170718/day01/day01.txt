@@ -1,0 +1,126 @@
+/home/tarena   是一种绝对路径
+
+/      根目录
+home   根目录下的子目录home
+/      与子目录（文件）之间的分隔符
+tarena 子目录
+
+
+
+
+pwd
+/home/tarena
+
+cd a/    是一种相对路径，以当前所在位置为参照
+
+
+
+
+ls /home
+cd /
+
+
+
+cd
+cd ~     当前用户的主目录 /home/tarena
+
+
+cd -   “返回”
+
+
+a.txt  b.txt  a.mp3  b.mp3
+
+ls  *mp3
+ls  ?.mp3
+
+
+通配符：
+*   任意匹配任意位数
+?   只能匹配一位
+
+
+
+ls  -l   查看详细信息
+
+-rw-rw-r-- 1 tarena tarena 0  7月 18 05:52 a.txt
+ u  g  o               a
+ user  group  others   all
+
+ r  可读    read
+ w  可写    write
+ x  可执行  execute
+ -  没有权限
+
+
+d     rwx        rwx            rwx  
+类型  用户权限   同组用户权限   其他用户权限
+
+-     d                  l
+文件  目录（directory）	链接
+
+
+修改权限
+chmod   666  a.txt
+rw-rw-rw-
+
+rwx-
+4210
+
+r-- 4
+rw- 6
+r-x 5
+
+通过字母修改权限
+u   user  用户
+g   group 用户组
+o   other 其他用户
+a   all   所有
+
+=  设置权限
+-  去除权限
++  添加权限
+
+u=rw,g+x,o-rwx
+
+
+5个mp3文件    5个txt文件    3个jpg文件
+
+分别显示出来，
+把mp3结果放进mp3.txt文件里
+把txt结果放进txt.txt文件里
+把jpg结果放进jpg.txt文件里
+
+
+mv  移动
+	用法： mv   文件  目录(文件)
+
+
+
+tar
+
+打包
+tar cvf  文件名.tar   要打包的对象们
+
+展开
+tar xvf  文件名.tar
+
+
+打包并压缩
+tar zcvf  文件名.tar.gz   要打包的对象们
+
+解压缩并展开
+tar zxvf  文件名.tar.gz
+
+
+
+vi  编辑工具
+
+
+
+创建一个文件  zuoye.txt
+
+里面内容：
+
+当前月份的日历，10遍
+
+hello world
