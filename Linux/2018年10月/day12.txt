@@ -1,0 +1,195 @@
+
+sed 流编辑器
+(stream editor)
+
+sed  [选项]  "条件和操作"   文件
+
+sed    -i     "/^#/d"      test.txt
+
+==================
+
+选项
+
+-n   屏蔽默认输出（全部内容）
+-i   修改源文件（保存到硬盘里）
+-r   支持扩展正则（{},+,|,?）
+
+=================
+
+新建一个文件  test.txt
+
+条件：
+1. 行号
+2. 正则表达式
+
+=================
+
+操作
+
+p   打印(输出、显示)
+d   删除
+s   替换
+
+sed -n "/root/p"  test.txt
+输出包含root的行
+
+sed -n "/^$/d"  test.txt
+删除空行
+
+
+替换“关键字”：
+s/old/new/     替换第一个关键字
+	sed  -n  "3s/bash/sh/"  
+	把第3行的第一个bash改成sh
+	
+	条件：3（表示第三行）
+	操作：s/bash/sh/（把第一个bash替换成sh）
+
+s/old/new/2    替换第二个关键字
+
+s/old/new/g    替换所有关键字
+
+和谐语法
+sed -ri "s/艹|草|操/*/g" a.txt
+
+
+给第4行增加注释（在行首加#）
+sed -i "4s/^/#/"  test.txt
+
+^ 可以表示行首
+
+
+a  追加(append)
+	sed -i "2a hello" test.txt
+		在第2行后面追加 hello
+
+i  插入(insert)
+	sed -i "3i aaaaaa" test.txt
+		在第3行前面插入 aaaaaa
+		
+c  替换行
+	sed -i "6c cccccc" test.txt
+		把第6行整体替换为 cccccc
+	
+
+============
+
+条件：行号
+
+sed  -n  "4p"  test.txt
+输出第 4 行的内容
+
+sed  -n  "4,7p"  test.txt
+输出第 4~7 行的内容
+
+sed  -n  "4,+10p"  test.txt
+输出第4行，以及后面10行的内容
+
+sed  -n  "1~2p"  test.txt
+输出奇数行的内容（13579）
+
+sed  -n  "2~2p"  test.txt
+输出偶数行的内容（2468）
+
+===============
+
+多个条件之间，可以用分号；隔开
+sed  -n  "4p;7p"  test.txt
+输出(打印、显示)第4行、第7行的内容
+
+=================
+
+条件：正则表达式
+
+正包含则表达式需要用//，比如
+sed -n "/三/p"  test.txt
+输出包含“三”的行
+
+
+
+如果不写条件，直接写操作，表示操作"所有内容"
+sed -i "s/guess/cai/"  test.txt
+相当于把每一行的第一个guess改成cai
+
+
+==========================
+find命令(递归查找)
+
+find  [目录]  [条件1]  [-a | -o] [条件2]
+
+-a  (and)  并且关系，左右都要符合条件
+-o  (or)   或者关系
+
+find   /root/    -name   "*.sh"  -a  -type  f
+
+
+选项：
+-name   名字
+	find  /root/   -name   "*.sh"
+	
+-type   类型
+	目录  d
+	文件  f
+	
+-size   大小
+	find  /root/   -size   +300k
+		查找大于300k的文件（包含隐藏文件）
+	find  /root/   -size   -300k
+		查找小于300k的文件（包含隐藏文件）
+	
+-user   文档所有者
+	
+-mtime  修改时间
+	
+find   /root/   -type  d
+
+
+=====================
+
+处理find的结果
+
+find /root/ -size +300k -exec 命令 {} \;
+
+我们执行完find，并不是要看它而已，而是要进一步处理所找到的内容。可以使用 -exec 进一步处理
+
+-exec 后面可以跟命令
+
+{}表示find的结果
+
+
+
+find  /root/   -name  "*.sh"  -exec ls -lh {} \; 
+
+=======================
+
+编写 xx.repo 文件
+
+vim  /etc/yum.repo.d/xx.repo
+
+
+[name]
+name=name
+baseurl=地址
+enabled=1
+gpgcheck=0
+
+=====================
+
+rpm  
+
+安装   rpm  -ivh   xx.rpm
+查询   rpm  -q     tree
+
+yum
+
+安装      yum  -y  install   tree
+卸载      yum  -y  remove    tree
+清理缓存  yum  clean  all
+列出      yum  repolist
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+#!/bin/bash
+mkdir kong
+for a in `ls *.txt`
+do
+	if [ ! -s $a ];then
+		echo "$a内容为空"
+		mv $a kong
+		echo "$a已被移动到kong里"
+	fi	
+done
+
+ls  *.txt

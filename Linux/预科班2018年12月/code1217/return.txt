@@ -1,0 +1,29 @@
+#!/bin/bash
+add(){
+	a=10
+	b=15
+	c=$[a+b]
+	echo $c
+}
+
+min(){
+	a1=$1
+	b1=$2
+	c1=$[a1-b1]
+	echo $c1
+}
+
+getBirthdayFromId(){
+	id=$1
+	birthday=${id:6:8}
+	echo $birthday
+}
+
+read -p "被减数：" bjian
+read -p "减数：" jian
+result2=`min $bjian $jian`
+echo "min函数执行完的结果是：$result2"
+read -p "身份证号码：" sfz
+bir=`getBirthdayFromId $sfz`
+echo "生日是$bir"
+

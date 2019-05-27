@@ -1,0 +1,564 @@
+南京新街口
+郭兴楠
+
+weixin ：gxingnan
+
+==================
+互联网“项目”：
+
+QQ、微信、淘宝
+
+================
+产品经理（需求、功能）
+设计师（图、文档）#ffab56
+开发部门
+	前端（网站）HTML CSS JavaScript
+	移动端（App  安卓  iOS）Java  oc
+	后端（后台）Java python c++ php node.js
+云计算（服务器、数据库、安全、集群、自动化）
+测试
+市场
+运营
+售后
+
+
+
+Ctrl shift +
+
+
+
+======================
+服务器
+
+企业用
+技术人员
+稳定性            
+
+Linux系统
+企业（技术人员）
+稳定性
+安全性
+免费
+开源（开放源代码）
+字符（键盘）
+
+
+
+
+windows
+家庭（小白）
+图形化（鼠标点击）
+闭源（封闭源代码）
+收费
+稳定性不够
+
+======================
+Linux相关
+
+未列出
+用户名：root
+密码：Taren1(yi)
+
+
+
+====================
+
+主要交互方式：通过键盘输入"命令"
+
+命令
+
+生活中： 进来  滚   赶紧吃
+计算机： poweroff（关机）
+		 date（日期）
+		 cal（日历）
+		 
+==================
+
+windows可以做的事情
+创建\删除\压缩\查看时间等
+
+Linux也可以做
+
+=================
+
+命令
+
+date    显示当前时间
+
+cal    日历 (calendar)
+
+ls (list)  展示、列出当前文件夹里的内容
+
+
+clear   整理、清理终端窗口里的内容
+ctrl + L  快捷键
+===============
+
+
+root
+Taren1(yi)
+
+普通用户
+=================
+
+
+命令后面可以跟参数，表示要处理的具体对象
+
+
+文件
+
+创建  touch  a.txt
+	  touch  b.txt c.txt d.txt
+	  ls
+	  
+	  
+删除  rm    a.txt
+(remove)	  
+
+
+	  rm   -f   a.txt
+	      选项
+	  (force  强制)
+	  
+	  
+	  
+	  touch  a.txt
+	  rm  -f  a.txt  b.txt  c.txt
+	  
+	  
+	命令  
+		ls  
+		date  
+		cal
+		
+	命令  参数
+		touch a.txt
+		
+	命令   选项   参数
+		rm      -f    a.txt
+	  
+			(force)
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+
+文件夹
+
+创建  mkdir   Jay
+	(make directory)
+	
+	  mkdir Michael Eminum Jordan
+	  
+	  
+删除  rm  -r  Jay  
+	(recursive  递归) 
+	
+	
+	  rm -rf  Jay  Michael  Jordan
+
+
+tab         自动补全
+上下方向键  从历史命令里查找
+
+
+	  
+	  
+	  
+	  
+pwd    显示当前目录（我在哪儿）
+（print  working  directory）	  
+  打印   正在工作   文件夹
+
+
+
+===============================
+
+文件系统
+
+windows： c  d  e  f
+Linux： /  根目录
+
+/home/zhou/music/qlx.mp3
+/etc
+/root
+
+
+
+路径
+
+绝对路径  以根目录/开头的路径
+			/root
+			/home/guoxn
+			
+相对路径  以当前目录作为参照
+			cd music
+			cd /root/music
+
+
+
+
+
+
+
+
+
+
+
+
+==================
+
+cd  /
+（change directory）
+  改变  文件夹(目录)
+ 
+
+pwd
+
+=================
+
+特殊路径
+
+用户的主目录
+
+root用户    /root
+
+普通用户    /home/用户名
+
+
+=================
+
+cd ~     回到用户主目录
+cd       回到用户主目录
+
+cd  ..      跳到上一层目录
+cd  ../..   跳到上一层的上一层
+
+/root
+cd  ../../../../../..
+
+
+练习：
+创建2个文件夹，Jay Michael
+进入Jay
+在Jay里，创建文件： jay.txt  jay.mp3
+返回上一层
+在Michael里，创建文件：Michael.txt  Michael.mp3
+返回上一层
+
+
+mkdir touch cd .. 
+
+
+
+==================
+
+输出重定向
+
+默认是要输出到屏幕上
+
+>
+覆盖
+
+date > c.txt
+
+echo hello > c.txt
+
+
+
+
+>>
+追加
+
+pwd >> a.txt
+
+
+
+
+
+=====================
+
+echo  回声
+
+echo hello 
+
+结果：在屏幕上显示一句“hello”
+
+echo hello > a.txt
+
+
+================
+
+cat  查看文本文件的内容
+（concatinate  连接）
+
+cat  b.txt
+
+cat  -n   b.txt
+	显示行号
+	
+================
+
+
+
+
+
+
+
+
+
+
+
+
+=========================
+
+cal  日历
+(calendar)
+
+cal          显示当前月份的日历
+cal 2008     显示2008年的日历
+cal 8 2008   显示2008年8月份的日历
+
+========================
+
+cat  查看文件内容
+(concatinate)
+
+cat     a.txt
+cat -n  a.txt
+cal >> b.txt
+ls >> b.txt
+======================
+
+head  头
+head      a.txt  查看a.txt的头10行(默认)
+head  -6  a.txt  查看a.txt的头6行
+
+
+tail  尾巴
+tail     a.txt    查看a.txt的末尾10行(默认)
+tail -6  a.txt    查看a.txt的末尾6行
+
+
+
+touch 
+ls       list
+mkdir    make directory
+cat      concatinate
+rm       remove
+cd       change directory
+pwd      print working directory
+echo    
+head
+tail 
+date
+cal      calendar
+
+
+==========================
+回到桌面   win + d
+
+打开“我的电脑”   win + e
+
+光标到行首  home
+光标到行末  end
+
+光标到文章开头 ctrl + home
+光标到文章末尾 ctrl + end
+
+==========================
+
+touch  a.txt
+如果文件已经存在，只修改时间戳，内容没有变化
+
+
+
+
+=====================
+
+从输入网址到看到网页内容，中间都发生了什么？
+www.baidu.com      ip地址
+服务器收到客户端发来的请求
+把对应的资源发送给客户端
+通过浏览器显示对应的资源
+
+======================
+
+ls  显示当前目录里的内容
+
+ls -a 
+  (all)   查看所有内容(包含隐藏文件)
+  
+ls -l
+  (long)  查看内容的长格式(详细信息)
+  
+ls -lh
+  (human) 以人类易读的方式查看详细信息
+  
+  
+================
+
+ ctrl shift +  放大字体
+ ctrl -        缩小字体
+ 
+=================
+
+上下方向键   可以从输入过的命令里查找
+tab    自动补全命令
+
+ctrl + L（清空屏幕） clear
+ctrl + u（清空光标左侧的内容）
+ctrl + w（清空光标左侧的一个单词）
+
+=====================
+
+ls;pwd
+
+
+============
+
+交互式
+
+脚本式(文档)
+
+==================
+
+ | 管道
+
+ 命令1   |   命令2
+把命令1执行完的结果，交给命令2去进一步处理
+
+ls  |   head
+显示当前目录里的前10个内容
+
+
+=====================
+
+通配符
+
+*   匹配任意长度的字符
+		rm   -f   *.txt
+?   匹配一位字符
+		rm   -f   ?.txt
+		
+[]  从一个范围里取一位
+		ls  [0-9].txt
+		
+{}  从指定的几个内容里去匹配
+		ls  {a,b,d,e}.txt
+
+
+
+
+=================
+
+文件(创建、删除)
+
+
+
+cp   复制
+(copy)
+
+cp   要复制的内容  要复制到的地方
+cp   a.txt         /home
+
+
+
+
+mv   移动（剪切）
+(move)
+
+mv   要移动的内容   要移动到的地方
+mv    a.txt        /home
+mv    a.txt        b.txt
+（重命名的用法）
+
+
+======================
+
+vim 的使用
+	vim   a.txt
+
+编辑（insert）模式
+	按键盘的 i 键，可以进入编辑模式
+	
+一般模式
+	通过vim命令进来的模式
+	不能编辑
+	在编辑模式、命令模式下，按Esc可以回到一般模式
+	
+命令模式
+	在一般模式下，按英文的冒号:进入
+	保存  :w   (write)
+	退出  :q   (quit)
+	保存并退出  :wq	  
+	强制退出    :q!
+	
+	
+==============
+
+vim 高级用法
+
+
+Linux用户相关的一些命令
+
+设置别名
+
+
+
+======================
+
+用户家目录
+
+root
+/root/
+
+普通用户
+/home/guoxn/
+/home/zhang/
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+ 
+  
+  
+
+
+
+

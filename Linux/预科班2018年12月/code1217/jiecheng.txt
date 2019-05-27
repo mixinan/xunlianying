@@ -1,0 +1,14 @@
+#!/bin/bash
+get(){
+	result=1
+	for a in `seq $1`
+	do
+		result=$[result*a]
+
+	done
+	echo $result
+}
+
+read -p "请输入一个正整数：" num
+res=`get $num`
+echo "$num 的阶乘是 $res"

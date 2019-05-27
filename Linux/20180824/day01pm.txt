@@ -1,0 +1,221 @@
+
+命令
+	ls
+	rm
+	cd
+	tab
+	touch 
+	pwd
+	clear   ctrl+l
+	
+	/root/Jay
+	相对路径  
+
+	/ 根目录
+	～ 用户主（家）目录
+	cd ~
+
+	..  上层目录  cd ../..
+	.  当前目录
+
+
+		D://Jay/music/
+
+	
+
+	vi编辑器
+
+	echo 回声
+		echo hello
+		结果: hello
+
+	输出重定向        >    覆盖输入
+				>>  追加输入
+
+		echo hello > a.txt
+		echo world >> a.txt
+
+
+	
+		cat  查看文本文件的内容
+			cat a.txt
+
+		
+		head  查看文本文件的前10行内容（默认查看10行）
+			head  a.txt
+			head -5 a.txt（查看头5行）
+			
+		tail  查看文本文件的后10行内容（默认查看10行）
+			tail  a.txt
+			tail -5 a.txt（查看末尾5行）
+
+		less   分页查看
+
+		more
+
+
+
+
+		
+		date   查看时间
+			date +%Y
+		    date +%m
+			date +%d
+			date +%Y-%m-%d
+			date +%F
+
+		cal    查看日历（calendar）
+
+		
+		管道  |
+		    把一个结果通过“管道”传递给后面的命令，去做处理。
+			ls | head
+			cal | tail -2
+
+
+
+
+		文件夹
+			创建  mkdir  Jay
+				make directory
+				
+				mkdir  Eminum  Jaz
+			删除
+				rm -rf music/  遍历删除（格杀无论）
+		
+		cd ..      ls 路径         touch 文件     
+
+
+		练习：
+			创建两个目录，分别是 mp3 和 txt
+			进入mp3目录，创建a.mp3 b.mp3 c.mp3
+			进入txt目录，创建a.txt b.txt c.txt
+
+			把mp3里的内容，显示在窗口里
+			把txt里的内容，显示在窗口里
+				
+
+
+		root  /root
+		普通用户  /home/Jay
+
+		
+
+		通配符  *   ?   []   {}
+			*  可以匹配任意长度的字符
+			?  只能匹配一位字符
+			
+			rm  -rf  *.txt
+			a.txt   dasfddsa.txt   ddd.txt
+
+			rm -rf  ?.txt
+			a.txt   b.txt
+			
+			rm -rf  a?.txt
+
+			删除所有名字以a结尾的文件(有后缀)    rm -rf  *a.*
+
+			
+			[]  表示一个匹配的范围
+			ls  [7-9].mp3
+			7.mp3 8.mp3 9.mp3
+
+			{}  表示从一组选项里选择包含的内容，用逗号(,)隔开
+			ls {1,4}.mp3
+			1.mp3  4.mp3
+
+
+
+
+
+		文件的复制、移动、压缩、解压
+			
+			cp  复制文件到某个路径(copy)
+				cp  a.txt  /home/b.txt
+				cp  a.txt  /home/
+
+				cp  文件1  文件2  文件3...  目标路径
+				
+
+			mv  移动文件到某个路径(move)
+				mv  a.txt  test/
+				mv  a.txt  test/b.txt
+				mv  a.txt  b.txt
+
+
+		练习：创建5个 .txt 文件，3个 .png 文件，2个 .gif 文件
+			  把它们分门别类地存放 txt  pic  gif
+
+
+
+			tar  压缩、解压、打包、展开
+
+				打包  
+					tar -cvf  a.tar  music/ txt/ a.txt
+					
+					-c  创建一个文档 create
+					-v  显示打包的内容 view
+					-f  后面紧接着最后的压缩文件名 file
+
+					tar -xvf  a.tar
+
+				打包并压缩	
+					tar  -zcvf  a.tar.gz  music/  txt/
+					tar  -zxvf  a.tar.gz
+
+
+			ls  -lh  a.tar  a.tar.gz
+
+
+
+
+
+
+
+
+
+		Linux一切皆文件
+			
+			.txt 文本文档
+
+			对后缀没有要求
+				
+
+
+		vi 的使用
+			vi a.txt
+			如果存在，则打开。如果不存在，先创建，再打开。
+
+			三种模式：
+				编辑（插入）模式   
+					在普通模式下，按 i 键进入。(insert)
+					按 Esc 键，退出编辑模式，进入普通模式。
+				普通（一般）模式   
+				命令模式 
+					在普通模式下，按英文的冒号(:)进入命令模式。
+				    ：w	  保存（write）
+					:q    退出（quit）				
+					:wq   保存并退出（write + quit）
+						:x  保存并退出（不建议使用）
+					:q!   强制退出
+		
+		练习：创建文件 hello.txt
+				写入一句古诗，保存并退出。
+				把诗句显示在窗口里。
+
+
+
+
+		Shell 编程
+		
+		
+			
+
+
+
+
+
+
+
+
+	

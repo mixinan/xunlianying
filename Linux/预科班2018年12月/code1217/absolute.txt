@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# 求绝对值的函数
+# 如果传入的参数>=0，结果是它本身
+# 否则，结果是它的相反数
+abs(){
+	n=$1
+	if [ $n -ge 0 ];then
+		echo $n
+	else
+		echo $[-n]
+	fi
+}
+
+read -p "请输入一个整数：" num
+result=`abs $num`
+echo "$num的绝对值是$result"

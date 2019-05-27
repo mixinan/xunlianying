@@ -1,0 +1,6 @@
+#!/bin/bash
+for a in `ls *.sh`
+do
+	new=${a//sh/txt}
+	mv $a $new
+done

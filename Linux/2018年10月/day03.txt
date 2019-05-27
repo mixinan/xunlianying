@@ -1,0 +1,245 @@
+Linux 命令
+
+vim编辑器
+
+vim  a.txt
+
+文件的创建   touch   b.txt
+查看当前目录里的内容  ls
+
+文件的复制 cp 
+用法：
+
+cp  要复制的内容  要复制到的地方(copy)
+cp  b.txt   /
+cp  b.txt   /c.txt
+cp  -r  music   /
+
+验证有没有复制成功：
+ls   /
+查看 / 根目录里的内容
+
+
+ctrl + (ctrl shift +) 放大字体
+ctrl -                缩小字体
+
+
+
+
+文件的剪切（移动） mv  (move)
+mv  要移动的文件   要移动到的地方
+mv  b.txt  /home
+mv  b.txt  c.txt
+
+ls
+ls  /home
+
+
+
+
+
+打包、压缩    tar
+
+
+
+打包：
+tar   -cvf   test.tar   要打包的内容
+
+选项：
+c (create)  创建一个文档  
+v (view)    可视的
+f (file)    文件
+
+
+打包并压缩：
+tar   -zcvf   test.tar.gz   a.txt  b.txt  c.txt
+
+
+展开：
+tar   -xvf   test.tar   -C   /home
+
+-C 选项，可以指定要展开到哪儿，后面跟"路径"
+
+展开并解压：
+tar   -zxvf   test.tar.gz
+
+
+
+
+在Linux里，对文件后缀，不做要求
+但是，为了更好和别人协作，命名尽量规范
+
+
+
+
+
+
+
+别名   alias
+
+临时设置（关闭终端，则失效）：
+
+alias 别名='命令......'
+alias gos='ssh   root@172.25.0.11'
+alias xxxx='ls -l'
+
+xxxx a.txt
+
+
+取消别名
+unalias xxxx
+
+xxxx
+报错：命令找不见
+
+
+
+
+通过命令设置的内容，都是临时生效
+重启终端，失效
+想要永久生效，需要修改配置文件
+
+.bashrc
+
+alias gos="ssh -X root@172.25.0.11"
+
+
+
+
+
+
+
+rht-vmctl  reset  classroom
+rht-vmctl  reset  server
+
+ssh  -X  root@172.25.0.11
+
+
+
+
+
+用户相关命令
+
+创建用户
+useradd  Michael
+
+cat   /etc/passwd   查看所有内容
+
+tail  /etc/passwd  末尾10行
+head  /etc/passwd  开头10行
+
+ls /home
+
+
+
+查看用户相关信息
+id   wang
+
+
+
+grep 查找符合条件的行,并显示
+
+grep   wang   /etc/passwd
+从 /etc/passwd 文件里，找到包含wang的行
+
+
+
+
+删除用户
+userdel  li
+不删除li的用户主目录 /home/li
+rm  -rf  /home/li
+
+
+userdel  -r  wang
+直接删除wang用户相关的所有内容
+
+
+
+不能删除当前登录的用户（不能自杀）
+
+
+
+
+
+
+
+
+
+
+修改用户密码：
+当前是root，给wang设置密码
+passwd  wang
+如果提示密码太简单，不用理会
+
+当前是普通用户，给自己重置密码
+passwd
+先输入当前的密码，再输入新密码
+密码的复杂度，必须符合系统要求才行
+
+
+
+切换用户(su   switch user)
+当前是root，切换到普通用户
+su - wang
+
+当前是普通用户，切换到root管理员
+su
+输入root的密码进行验证
+
+
+
+
+
+
+
+
+
+
+
+man    ls
+(manual 手册、说明书)
+help   pwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

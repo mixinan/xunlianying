@@ -1,0 +1,219 @@
+ls
+
+		/bin/bash
+用户输入 -   解释器    - 内核  -  硬件
+
+
+
+vi 操作：
+	
+	以下操作，都是在普通模式下	
+	
+	复制   nyy  (yank 拉，与复制一个意思)
+ 		n是一个整数（如果为1，可以省略）
+		从当前行开始，复制n行
+
+  	粘贴   np   (paste)
+		在当前行的下方，粘贴n遍
+		
+		
+	删除（剪切）  ndd   
+		从当前行开始，删除n行
+
+
+	撤销   u    (undo)
+
+	cal > a.txt
+	vi a.txt
+
+
+	G    跳转到最后一行
+	ngg  跳转到第n行
+	ctrl + f  往下翻半屏 （forward）
+	ctrl + b  往上翻半屏 （backward）
+
+
+	一些快捷方式：
+		ctrl + u   清空光标（鼠标提示符）左侧的部分
+		ctrl + w   清空一个单词(word)
+
+		alt + .    直接粘贴上一条命令的最后一个参数
+			touch  abcd.txt
+			rm (alt + .)
+
+
+		mkdir  -p   a/b/c    (parent)缺啥补啥
+		mkdir music
+		mkdir Jay  movie
+
+		
+
+	起别名：起个外号、小名
+
+		临时设置和取消:
+
+			alias 自己起的名字='要执行的命令'
+
+			alias myls='ls -lh'
+			以后用的时候，直接执行 myls 命令，相当于 ls -lh
+			
+			取消临时别名：
+			unalias  myls
+
+		如果需要持久保存，要改配置文件  ~/.bashrc
+			加一句  alias myls='ls -lh'
+
+		不要乱起别名（不要搞破坏）：
+			alias ls=' rm -rf ./* '
+
+		alias go1='ssh -X root@38.29.33.1'
+		alias go2='ssh -X root@44.29.33.1'
+
+
+
+
+		关机          poweroff
+		重启          reboot
+		查看ip   ifconfig
+
+		查看两台计算机是否能够通信：   ping  对方ip地址
+		ctrl + c  终止当前的进程
+
+		
+	
+		远程连接另一台电脑：
+
+			ssh 用户名@ip地址
+			ssh -X 用户名@ip地址
+
+			
+		恢复命令： rht-vmctl reset  classroom
+				 rht-vmctl reset  server
+				 rht-vmctl reset  desktop
+			
+				alias gos='ssh root@172.25.0.11'
+				alias god='ssh root@172.25.0.10'
+
+
+		用户
+			创建   useradd  wang
+				  id  wang
+				  grep  wang  /etc/passwd
+
+				设置普通用户密码：
+					当前是root的话： passwd  wang
+						然后输入两次密码。
+
+					当前是普通用户： passwd
+						输入旧密码，然后输入两次新密码（复杂）
+			
+			删除   userdel  wang
+
+
+			练习：
+				创建用户  alibaba
+					查看它的信息
+					设置密码为 123456
+
+
+			切换用户（su，switch user）：
+				root -> 普通用户        
+					su - 用户名
+					su - wang
+
+					从上往下切换，不需要密码验证
+
+				普通用户  ->  root
+					su
+					输入密码
+
+					从下往上，需要密码验证
+
+
+
+			server里的root密码，是 redhat
+
+
+
+			权限：
+				ls -l a.txt
+
+				-      rw-        r--       r--
+  
+				类型      user权限   group权限   others权限
+						u         g          o
+
+				r   read 读权限
+				w	write 写权限
+				x	execute 执行权限
+				-       无权限
+
+
+	修改权限的命令   chmod
+				
+				+ - =
+
+				u-w   去除user的写权限
+				g-r   去除group的读权限
+				o=---  不给others任何权限
+
+			chmod u+x a.txt
+			chmod u-x,g+w,o-r a.txt
+			chmod u=rwx a.txt
+
+			
+			rwx-
+			4210
+
+		chmod 665 a.txt
+
+
+		练习：
+			创建文件  b.txt
+				设置它的权限为  -     rwx  r-x   ---
+								 7        5           0
+
+
+		
+
+		
+		脚本式
+		交互式
+
+		.sh 后缀的文件，可以直接执行
+		内容为 bash 能够识别的命令、语法
+
+		vi hello.sh
+
+		#!/bin/bash
+		pwd
+		cal
+		ls	
+
+			
+		chmod u+x hello.sh
+
+		绝对路径  /root/hello.sh
+			
+
+		
+			
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		

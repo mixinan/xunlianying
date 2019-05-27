@@ -1,0 +1,43 @@
+-rw-rw-r-- 1 tarena tarena 0 11月 16 21:16 c.jpg
+
+
+-       rw-   rw-      r--
+类型   user   group    other
+		u      g        o
+
+		all    a
+
+		权限：   r      w        x          -
+				read   write  execute    无权限
+
+		设置权限方法：
+		+   u+r,g-w,o-x
+		-   g-x
+		=   u=rwx
+
+		修改权限的命令： chmod
+		用法：  chmod  u+x  a.txt
+		ls -l  a.txt
+   
+类型
+-   文件
+d   目录
+l   链接
+
+
+练习：	创建文件  hello.txt
+		查看hello.txt的权限
+		修改它的权限为 --xr---w-
+
+
+
+		code.tarena.com.cn
+		账号：tarenacode
+		密码：code_2013
+
+
+
+
+
+
+

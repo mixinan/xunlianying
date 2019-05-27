@@ -1,0 +1,31 @@
+touch
+ls
+pwd
+date
+cal
+cd
+mkdir
+rm
+head
+tail
+cat
+echo
+
+金山打字通（120字/分）
+
+Ctrl + l
+clear
+
+tab
+
+上下方向键
+
+绝对路径   以/开头
+
+music  /root/music   a.txt
+
+
+
+
+
+

@@ -1,0 +1,156 @@
+scp  root@176.4.11.42:/root/day04.txt  /root
+密码：Taren1
+
+========================
+CSS的三种方式
+
+内联样式
+	<p style="样式表">内容</p>
+	
+内部样式
+	在head里，加入一个<style></style>标记
+	
+	<html>
+		<head>
+			<style>
+				各种各样的样式
+			
+			
+			</style>
+		</head>
+		<body></body>
+	</html>
+	
+	
+	
+外部样式
+	网页结构的文件 x.html
+	网页样式的文件 x.css
+	
+	新建一个文件，专门写网页样式
+	在x.html的head里，增加：
+	<link href="x.css" rel="stylesheet" type="text/css">
+	
+	
+	
+	
+优先级
+==================
+就近原则
+
+如果样式冲突，内联样式最优先
+
+	
+
+===========================
+颜色
+
+颜色单词：
+
+词汇量有限，无法描述大千世界里所有颜色
+	red orange yellow green blue  purple
+
+	
+rgb：red   green   blue
+
+三基色 红   绿   蓝
+color:rgb(88,155,33);
+数值范围：0~255
+rgb(0,0,0)        黑
+rgb(255,255,255)  白
+
+rgba(88,45,122,0.5);
+alpha 透明度，0~1之间取值
+
+
+
+十六进制方式：用6位十六进制数来表示
+color:#fabcdf;
+
+前2位：红
+中间2位：绿
+后2位：蓝
+
+十进制：01234546789
+八进制：01234567
+二进制：01
+十六进制：0123456789abcdef
+
+========================
+尺寸(px 像素  cm 厘米)
+
+外边距
+	margin:10px;   四周都有外间距
+	margin-left:   左侧外边距
+	margin-right:  右侧外边距
+	margin-top:    上面外边距
+	margin-bottom: 下面外边距
+	
+内边距
+	padding:10px;    四周都有内间距
+	padding-left:    左侧内边距
+	padding-right:   右侧内边距
+	padding-top:     上面内边距
+	padding-bottom:  下面内边距
+
+	
+边框
+	border: 粗细    样式    颜色;
+			1px    solid   rgb(50,120,66)
+	
+	样式：dotted  dashed  double  solid  none
+	
+圆角
+	border-radius:8px;
+	
+文字阴影
+	text-shadow:水平偏移 垂直偏移 阴影长度  阴影颜色
+				2px      2px      2px      #ffc0c0
+	
+边框阴影
+	box-shadow:水平偏移 垂直偏移 阴影长度  阴影颜色
+				0         0      8px      black
+				
+宽度
+	width:500px;
+	width:50%;
+
+高度
+	height:500px;
+
+让“块级元素本身”水平居中
+	margin:  0     auto;
+
+==========================
+文本对齐（块级元素）
+	text-align:center;   居中
+	text-align:left;     左对齐
+	text-align:right;    右对齐
+
+
+=======================
+html里的注释
+
+<!--注释内容-->
+
+给程序员自己看的内容，不显示在网页上
+
+=======================
+鼠标样式
+
+cursor:pointer;
+值：wait  help  move  crosshair  pointer
+
+
+=================
+CSS选择器
+
+
+
+
+
+
+
+
+
+

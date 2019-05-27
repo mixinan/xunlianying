@@ -1,0 +1,134 @@
+1. grep 命令的用法是什么，并举例说明
+	grep   关键字   文件
+	grep    root     /etc/passwd
+
+
+
+2. 创建用户  名字
+设置密码为 123456
+查看用户信息
+删除用户(包含它的主目录)
+	useradd  a
+	passwd  a
+	输入密码即可
+	id   a
+	grep   a  /etc/passwd
+	
+	userdel  -r  a
+	
+
+
+3. root用户的主目录在哪儿
+普通用户的主目录在哪儿
+	/root
+	/home/xxx
+
+
+
+
+4. 写出 5 个 html 标记，以及它们的含义
+	用一个有序列表显示“四大名著”在页面上
+	利用 css 给 body 设置一个背景颜色
+	
+	<ol>
+		<li></li>
+	</ol>
+	
+	<html>
+		<head></head>
+		<body id="all"></body>
+	</html>
+	
+
+	
+	
+
+5. 如何以root身份远程登录 172.25.0.11
+	ssh   -X   root@172.25.0.11
+	
+6. 创建文件 test.sh，修改它的权限为 rwxrw-r--
+	touch  test.sh
+	chmod  u+x,g+w  test.sh
+	chmod  764  test.sh
+	
+
+7. 如何给一条命令创建别名？alias 的用法
+	alias ls="ls --color=auto"
+	
+	\ls   “临时”以ls“本身的功能”去执行
+	
+	
+	
+
+8. 在 /root 下创建文件 a.txt  b.html
+   把它们打包成  1015.tar
+   并查看 1015.tar 的详细信息
+   
+    cd  /root
+	touch  a.txt   b.html
+	tar  -cvf  1015.tar  a.txt  b.html
+	ls  -lh   1015.tar
+   
+   
+9. 在 /var 目录下，创建文件夹 1015
+	把第8题中创建的 1015.tar 移动到 /var/1015 下
+	mkdir  -p  /var/1015
+	cd  /var
+	mkdir  1015
+	mv    /root/1015.tar  1015
+	
+	cd /root
+	mv   1015.tar   /var/1015
+	
+	
+	
+10. css 的选择器，说出3种，并举例
+	id选择器       <p id="p1"></p>     #p1{}
+	class选择器    <p class="p2"></p>  .p2{}
+	标记选择器     <body></body>       body{}
+	群组选择器     #p1,.p2,body{padding:0;}
+	子代选择器	    #abc>p{}
+	后代选择器      #abc p{}
+
+
+11. 显示"当前月份"日历的前 3 行
+	cal | head -3
+
+	
+	
+	
+	
+	字要少，字体要大
+	能用图片，呈现数据，最好
+	尽量少用一些杀马特动画
+	颜色不要太多
+	大纲，条理
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+	

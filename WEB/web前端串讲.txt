@@ -1,0 +1,165 @@
+web internet
+
+浏览器
+C/S   client
+	  server
+B/S   Browser
+	  server
+	  
+	  浏览器   提交请求
+				解析页面
+				
+	  服务器    
+	  协议http
+	  
+	  
+	  html   网页结构（盖房子）
+	  css    网页样式（装修）
+	  javascript  动态效果
+	  
+	  
+	  HTML   hyper 超级的 <a> <b>
+			 text  文本   a  b  c  
+			 markup 标记  <a>
+			 language 语言
+			 
+	doctype html
+		doc  document 文档
+		type  类型
+		
+	<html>
+		<head>
+			<title>京东</title>
+			<meta charset="utf-8">
+			<meta name="keywords" content="购物">
+		</head>
+		<body>
+			给用户呈现的内容
+		
+		</body>
+	</html>
+	
+		<!--注释内容-->
+	  
+	  双标记(封闭标记)  <b>测试</b>
+	  单标记(非封闭标记) <br/>
+	  
+	  head  定义网页的全局信息
+		title  题目
+		meta  charset  编码格式
+			  keywords  关键字
+			  description  描述
+			  
+			  
+	今天的主要内容：
+		常用标记
+		
+			b  加粗   bold   <b>测试</b>
+			i  斜体   italic  <i>测试</i>
+			u  下划线 underline <u>测试</u>  
+			
+			换行  br  <br/>或<br>  break
+			水平线  hr  <hr/>或<hr>  horizontal
+			
+			标题 h1~h6
+				特点：
+					独占一行
+					字体加粗
+					上下有间距
+					
+			<h1>一级标题</h1>
+			<h2>二级标题</h2>
+			<h3>三级标题</h3>
+			...
+			<h6>六级标题</h6>
+			
+			
+			上标 2的平方  sup  2<sup>2</sup>
+			下标 H2O      sub  H<sub>2</sub>O
+			
+			
+			段落   p   paragraph
+				<p></p>
+				
+			超链接  a  
+				<a href="www.it211.com.cn">tmooc</a>
+				href  指定要跳转的页面
+				target  跳转方式
+					_blank  在标签页打开
+					_self   在当前页面打开
+					
+					
+			图片  img 单标记 <img />
+				<img src="1.jpg"/>
+				src   source 资源
+				width="20px"
+				height="40px"
+				如果只设置一个，
+				另一个会自动等比例缩放
+				alt  如果图片路径有误，显示的话
+				
+				image
+			
+			标记、标签、元素
+			
+				
+		标记的属性：
+			<标记 属性="值">文字内容</标记>
+			
+			通用属性：
+				id 
+				class
+				title
+				style
+				
+				
+	列表
+		有序列表 ol
+			order list
+			
+		无序列表 ul
+			unorder list
+			
+		列表项  li
+			list item
+		
+		
+		table 表格
+		tr  table row
+		td  table data
+		<table>
+			<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+			</tr>
+			<tr>
+				<td>测试</td>
+				<td>测试</td>
+				<td>测试</td>
+			</tr>
+			<tr>
+				<td>测试</td>
+				<td>测试</td>
+				<td>测试</td>
+			</tr>
+		</table>
+		
+	开发工具：
+		HBuilder
+		webstorm
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  

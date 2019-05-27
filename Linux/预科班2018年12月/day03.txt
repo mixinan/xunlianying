@@ -1,0 +1,265 @@
+echo  -n   "字符串"
+-n 选项，作用：显示完内容，不换行
+反过来说，echo 本身，自带换行功能
+
+=========================
+前端（网站、App）---前台（html、css、JavaScript）
+	呈现数据
+	接收用户的请求
+	帮用户把请求发给后端
+	呈现从后端拿来的数据
+后端（php、Java、Python、c++、C#...）
+	接收前端发来的请求
+	根据请求，去访问数据库
+	把数据反馈（响应）给前端
+	
+	
+
+文件
+=================
+
+复制 (copy)
+cp   要复制的内容   目标位置
+
+cp   a.txt  /
+把当前文件夹里的a.txt复制到/里
+
+cp   a.txt  b.txt   /
+把当前文件夹里的a.txt b.txt复制到/里
+
+最后一个参数，表示目标位置
+
+==================
+剪切(移动) (move)
+
+mv   a.txt   /
+把当前文件夹里的 a.txt 移动到/里
+
+mv   a.txt  b.txt  /
+把当前文件夹里的 a.txt b.txt 移动到/里
+
+注意：最后一个参数，表示目标位置
+
+
+===================
+ping  ip地址
+
+ping  -c  整数  -i  数字  ip地址
+
+c   (count 数量)        一共发送多少个数据包
+i   (interval 间隔时间) 发送数据包的间隔时间
+
+====================
+
+打包(展开)压缩(解压)   tar
+====================
+
+打包
+tar  -cvf  压缩包的名字  要打包的各个文件(夹)名....
+tar  -cvf  a.tar  a.txt  b.txt  1.mp3
+
+c   (create 创建)  创建一个文档(包裹)
+v   (view 可视的)  可以看到打包的过程
+f   (file  文件)   指定文档的名字
+
+注意：f选项后面，要紧跟压缩包的名字
+之后的参数，可以罗列出要打包的各个文件(夹)名
+====================
+
+展开
+
+tar  -xvf   b.tar
+提取b.tar里的所有文件到当前（默认）
+
+x (extract 提取、取出) 从文档里提取出所有文件
+
+tar  -xvf   b.tar  -C  目标位置
+提取b.tar里的所有文件到目标位置
+
+=====================
+
+打包并压缩
+
+tar  -zcvf   a.tar.gz   a.txt   b.txt   
+
+z  表示使用gzip压缩算法，对应名字为 xx.tar.gz
+
+=====================
+
+解压并展开
+
+tar  -zxvf   b.tar.gz  -C  Music/
+把b.tar.gz里的内容解压并展开到Music文件夹
+
+=====================
+
+wc （word  count）
+查看文本文件的字数
+
+wc  文件名
+wc  a.txt
+
+-l   (line) 一共多少行
+-w   (word) 一共多少字
+
+wc  -lw  a.txt
+查看a.txt的行数和字数
+
+====================
+
+注册一个账号  https://www.github.com
+
+
+====================
+用户相关
+
+创建
+useradd   用户名
+useradd   chenpeisi
+
+文件 /etc/passwd，类似于系统里的户口本
+cat   /etc/passwd
+tail  -3   /etc/passwd
+
+ls   /home
+增加了一个文件夹 chenpeisi
+
+====================
+删除
+
+userdel  用户名
+userdel  -r  zhushibao
+
+等同于：
+userdel   zhushibao
+rm   -rf   /home/zhushimao
+
+==================
+给用户设置密码
+
+root给"普通用户"设置密码：
+passwd   用户名
+passwd   chenpeisi
+请输入密码（直接指定新密码）：
+请再次确认：
+
+
+普通用户给自己设置密码：
+passwd
+当前密码：
+新密码（复杂密码）：
+再次确认：
+
+==================
+切换用户（switch  user）
+
+从root切换到普通用户：
+su  -   chenpeisi
+
+从普通用户切换到root：
+su
+请输入密码：
+
+==================
+家目录(执行 cd)
+
+root  
+管理员，家目录在 /root
+
+普通用户，家目录在 /home/用户名文件夹
+用户zhaobenshan，家目录 /home/zhaobenshan
+用户zhushimao，  家目录 /home/zhushimao
+
+===================
+windows里常用快捷键：
+
+win + e    打开资源管理器（ explorer ）
+win + d    回到桌面（desktop）
+win + r    打开运行界面（run）
+home       页面顶部、文本当前行开头
+end        页面底部、文本当前行末尾
+ctrl + home   到文本开头
+ctrl + end    到文本末尾
+delte         删除文件、或光标右侧内容
+ctrl + 删除   一次删除一个单词（以空格区分）
+
+shift + 字母键   临时输入大写字母
+
+===================
+修改时间
+date     -s     "2018-11-27 13:55:21"
+
+s    (set 设置)  
+
+格式必须符合基本法，月份1~12，时间0~24，日期1~31
+
+===================
+grep
+
+查找文本中的关键字，把含有关键字的行进行输出
+
+grep   关键字       文本文件
+grep   zhaobenshan  /etc/passwd
+
+===================
+vim 进入编辑模式
+
+i 进入编辑模式，在光标左侧开始输入
+o 在当前行下方另起一行，并且进入编辑模式   
+O 在当前行上方另起一行，并且进入编辑模式   
+
+=============
+给vim设置行号
+
+在命令模式下（临时生效，重新打开vim，无效）
+:set  nu
+
+取消行号
+:set  nonu
+
+永久生效（修改配置文件 .vimrc ）：
+vim   .vimrc
+写入  set nu
+
+=============
+scp  (secure copy)
+
+把“本地文件”拷贝到“远程机”
+scp  本地文件  用户名@远程机的ip:具体路径
+scp  biji.tar.gz   root@176.4.11.48:/root
+
+把“远程文件”拷贝到“本机”
+scp  root@176.4.11.42:/root/biji.tar.gz     /root   
+
+密码：Taren1
+
+==========================
+
+练习：
+1. 新建文件 1204.txt，写入一首诗
+2. 新建文件 1204.sh，写入：
+	#!/bin/bash
+	写入5个命令
+	
+3. 修改1204.sh 的权限为 rwxrw-r--
+4. 把1204.txt 和 1204.sh 打包并压缩为 guoxn1204.tar.gz
+5. 通过scp 把 guoxn1204.tar.gz 发送到 /root/zuoye
+	scp  guoxn1204.tar.gz  root@176.4.11.42:/root/zuoye
+	
+
+
+	提示：  chmod     Taren1   
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

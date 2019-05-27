@@ -1,0 +1,331 @@
+continue  结束本次循环，直接下一次
+		  本次循环里，
+		  continue以后的语句，不需要执行
+break     结束整个循环	
+exit      结束程序
+
+==========================
+练习：
+
+打印1~20，不打印6
+for a in {1..20}
+do
+	if [ $a -eq 6 ];then
+		
+	fi
+	echo $a
+done
+
+=========================
+
+条件判断
+
+数字比较(-eq -ne -lt -gt -ge -le)
+字符串比较( =  !=)
+	a="hello"
+	if [ $a = "root" ]
+	
+	-z $变量   变量内容是否为空(变量是否"不存在")
+	if [ -z $a ]
+	如果a没有声明过(不存在，为空)，则为真，符合条件
+	
+文件相关(-e -f -d -r -w -x -s)
+	-s a.txt
+    a.txt文件存在，并且长度不为0
+	
+	功能之一：清除所有的空文件
+	if [ ! -s a.txt ];then
+			echo "a.txt为空文件"
+	fi
+
+
+=======================
+短路
+
+&&  逻辑与（并且。所有都成立，整体才成立）
+||  逻辑或（或者。只要有一个成立，整体就成立）
+
+===================
+短路“与”：
+
+[ -z $user ] && exit
+第一个条件成立，还不能确定整体是否成立，
+所以必须执行第二个判断
+
+
+如果第一个条件就“不成立”，整体已经能够确定“不成立”了，
+就不需要再执行第二个判断（这种现象叫作“短路”）
+
+
+练习：
+输入用户名、密码，创建新用户
+如果没有输入用户名，程序直接结束
+
+read -p "请输入用户名:" user
+if [ -z $user ];then
+	exit
+fi
+
+
+read -p "请输入用户名:" user
+[ -z $user ] && exit
+
+
+====================
+短路“或”
+
+条件1  ||  执行语句  
+
+如果前面的条件成立，整体就可以确定成立，
+不需要再执行后面的语句（短路）
+
+如果前面的条件不成立，还无法确定整体的结果，
+必须执行后面的语句
+
+
+a=10
+
+[ $a -gt 8  ] || let a++
+echo $a
+结果：10
+
+[ $a -gt 18  ] || let a++
+echo $a
+结果：11
+
+
+===========================
+练习：
+输入用户名、密码，创建新用户
+如果没有输入用户名，程序直接结束
+如果没有输入密码，使用默认密码“123456”
+
+read -p "请输入用户名:" user
+if [ -z $user ];then
+	exit
+fi
+
+
+read -p "请输入密码：" pswd
+
+为了防止用户不输入密码，需要进行优化
+
+方法1：
+pswd=${pswd:-123456}
+
+方法2：
+if [ -z $pswd ];then
+	pswd="123456"
+fi
+
+
+==========================
+Shell 数组
+
+arr=(1 2 3 4)
+arr1=("hello" "world" "are" "you" "ok")
+
+下标从0开始
+取值方法：${arr[下标]}
+
+取1，  echo ${arr[0]}
+取you，echo ${arr1[3]}
+
+给下标为2的位置，重新赋值：
+arr[2]=100
+arr[4]=8
+
+取所有数据，  echo ${arr[*]}
+取数组的长度，echo ${#arr[*]}
+
+==================
+练习：
+
+有一个names.txt文件，写有所有人的名字
+在 getNames.sh 脚本里，读取names.txt里的名字
+把它们写到一个数组里，arr
+
+
+names.txt
+周杰伦
+庾澄庆
+那英
+刘欢
+
+
+getNames.sh
+arr=()
+
+index=0
+
+for name in `cat names.txt`
+do
+	arr[index]=$name
+	let index+=1
+done
+
+echo ${arr[*]}
+
+============================
+Shell函数的返回值
+
+两种方式：
+return
+echo
+
+===========================
+return方式(返回数字)：
+add(){
+	a=10
+	b=15
+	c=$[a+b]
+	return $c
+}
+
+min(){
+	x=8
+	y=6
+	z=$[x-y]
+	return $z
+}
+
+add
+result1=$?
+echo result1
+结果：25
+
+min
+result2=$?
+echo result2
+结果：2
+
+========================
+echo 方式（可以返回字符串）：
+
+add(){
+	a=10
+	b=15
+	c=$[a+b]
+	echo $c
+}
+
+min(){
+	x=8
+	y=6
+	z=$[x-y]
+	echo $z
+}
+
+getBirthdayFromId(){
+     id="142200199106061122"
+     birthday=${id:6:8}
+     echo $birthday
+}
+
+result1=`add`
+echo "add函数执行完的结果是$result1"
+result2=`min`
+echo "min函数执行完的结果是$result2"
+bir=`getBirthdayFromId`
+echo "生日是$bir"
+
+========================
+函数的传递参数
+add(){
+	a=$1
+	b=$2
+	c=$[a+b]
+	echo $c
+}
+
+result=`add  10   15`
+
+========================
+练习：
+定义一个"求绝对值"的函数
+abs(){
+	执行的代码
+}
+
+要求：
+在执行脚本程序时，
+让用户输入一个整数，
+然后计算机显示它的绝对值
+
+思路：
+如果是正数（大于或等于0），结果就是自身
+如果是负数，结果是相反数
+
+取变量a的相反数：
+echo $[-a]
+
+==========================
+练习：
+定义一个“判断闰年”的函数
+isRun(){
+	year=$1
+	if [ $[year%4] -eq 0 ] && [ $[year%100] -ne 0 ] || [ $[year%400] -eq 0 ];then
+		
+		echo "闰年"
+	else
+		echo "平年"
+	fi
+}
+
+read -p "请输入年份：" y
+result=`isRun $y`
+echo "$y是$result"
+
+
+========================
+练习：
+
+创建一个“生成n位随机密码”的函数
+要求：可以传入一个参数，表示密码位数
+genPswd(){
+	
+
+}
+
+# 生成8位密码
+result=`genPswd 8`
+echo $result
+
+=======================
+createUser.sh
+read -p "请输入用户名：" user
+useradd $user
+pswd=`genPswd 8`
+echo $pswd | passwd  --stdin  $user
+
+=======================
+
+练习：
+
+编写一个“求阶乘”的函数
+让用户输入一个正整数，计算机显示这个数的阶乘
+
+5的阶乘：5*4*3*2*1   1*2*3*4*5
+n的阶乘：n*(n-1)*...*1
+
+
+result=1
+for  a  in `seq $n`
+do
+	result=$[result*a]
+done
+
+===========================
+
+xxx.sh   ====>   xxx.txt
+
+创建a.mp3 bc.mp3 c.mp3 abc.mp3
+使用脚本，批量把这些mp3文件变成txt文件
+
+for  a  in  `ls *.mp3`
+do
+	${a//mp3/txt}
+	mv  $a    
+done
+
+

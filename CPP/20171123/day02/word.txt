@@ -1,0 +1,42 @@
+return  返回
+printf()
+%d      整数类型的占位符
+scanf()
+int     整数类型
+main    主函数名称
+include 包含
+stdio.h 
+gcc     编译器
+-E      处理预处理指令
+-o     	给生成的可执行文件重命名
+\n      换行
+a.out   生成的默认可执行文件
+mkdir   创建文件夹
+touch   创建文件
+rm      删除文件
+rm -r   删除文件夹
+ls      显示所有内容
+pwd     打印当前路径
+cal     日历
+cat     查看文本文件内容
+head    查看头10行
+tail    查看末尾10行
+more    分页查看
+tar     打包、展开、解压
+tab     缩进、命令补全
+chmod   修改权限
+alias   别名
+vi      编辑文件
+echo    回声
+date    日期
+/
+../
+./
+~
+clear   清屏 ctrl+L
+ndd     删除（剪切）n行
+nyy		复制n行
+np      粘贴n遍
+cd      切换文件夹
+>		输出重定向(覆盖)
+>>		输出重定向(换行追加)

@@ -1,0 +1,234 @@
+班级抽奖脚本
+
+1 wuyuezhao
+2 chenhao
+3 chenzheng
+4 ouxianlei
+5 zhubo
+6 chenmingwei
+7 niuwei
+8 zongyifan
+9 zhouyu
+10 zhenghao
+11 xuyang
+12 qixiaowang
+
+
+
+jinli=$[RANDOM%12+1]
+
+
+
+case $jinli in
+1)
+	echo "wuyuezhao";;
+2)
+	echo "chenhao";;
+esac
+
+
+
+====================
+
+continue   继续下一次循环
+break      结束整个循环
+exit       结束程序
+
+====================
+
+练习：
+
+输入一个正整数
+为“1~这个正整数”之间的所有数求和
+
+比如：输入5
+求 1+2+3+4+5
+
+
+====================
+
+思路：
+read n
+sum=0
+for i in {1..n}
+do
+	sum=$[sum+i]
+done
+
+echo "1~$n的和是$sum"
+
+================
+
+Shell里的函数
+
+可以把多条语句，打包成一个函数，
+起一个名字
+
+需要用到这些语句时，直接调用函数名即可
+
+=================
+
+hello(){
+	ls
+	cal
+	pwd
+	date
+}
+
+hello
+
+=================
+
+顺序：先定义，后调用
+
+
+=================
+
+字符串的替换
+
+138
+
+${x/老数据/新数据}   替换第一个符合条件的
+
+x=13811001122
+
+echo ${x//0/8}  
+
+======================
+
+字符串掐头去尾
+
+去掉左边
+${x#*:}   
+一个#，去掉"第一个"冒号及左边的内容
+	执行完后，对x变量本身没有影响
+	因为没有赋值的动作
+
+${x##*:}  
+两个#，去掉"最后一个"冒号及左边的内容
+
+njxjk810
+njxjk811
+njxjk812
+
+for i in `cat user.txt`
+do
+	echo ${i#*k} >> id.txt
+done
+
+======================
+
+去掉右边
+${x%:*}
+${x%%:*}
+
+for i in `cat /etc/passwd`
+do
+	echo ${i%%:*} >> user.txt
+done
+
+=================
+
+
+练习：
+
+文件后缀替换
+a.txt b.txt c.txt
+
+txt ==> mp3
+
+a.mp3 b.mp3 c.mp3
+
+
+=================
+
+变量的初值
+
+read -p "请输入你要添加的账号" user
+
+[ -z $user ] && exit
+
+条件1  ||  条件2
+
+read -p "请输入密码" passwd
+
+passwd=${passwd:-123456}
+
+echo $user
+echo $passwd
+
+useradd $user
+echo "123456" | passwd --stdin   $user
+
+
+
+
+
+echo ${vvv:-123}
+
+
+
+
+
+if [ -z $user ] ;then
+	exit
+fi
+
+
+===============
+
+字符串初值
+
+${var:-word}
+
+
+==================
+
+字符串比较
+
+[ -z $user ]
+判断 user 变量是否有内容
+
+[ -z $user ] && exit
+如果 user 变量没内容，直接退出
+
+============
+
+短路
+&&
+||
+
+=============
+
+date
+2018年10月14日 星期四 16:23:39 CST
+
+date +%Y   年（year）
+date +%m   月(month)
+date +%d   日(day)
+date +%H   时（hour）
+date +%M   分（minute）
+date +%S   秒（second）
+date +%F   年月日(Full date)
+
+自己拼写 2018-10-18
+date +%Y-%m-%d
+
+自己拼写 2018.10.18
+date +%Y.%m.%d
+
+
+=================
+h.sh
+tar -zcvf `date +%F`.tar.gz  /root  &&  poweroff
+
+0 17 * * * /root/h.sh
+
+
+===============
+
+
+
+	
+	
+

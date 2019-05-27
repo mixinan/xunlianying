@@ -1,0 +1,204 @@
+练习：
+
+编写脚本，批量修改文件后缀（掐头去尾）
+
+touch  {a,b,c,d,ted,tt}.txt
+
+*.txt ===> *.mp3
+
+
+思路：
+name=a.txt
+去掉原来的后缀.txt，只留下文件名a
+在文件名a后面，拼接.mp3，得到a.mp3
+
+mv $old $new
+
+=======================
+练习：
+
+创建一个脚本文件，可以生成指定个数的文件
+文件名字是系统随机生成
+
+=======================
+awk
+文本处理工具，主要是按字段处理数据
+
+id   name   age
+1	 Jim    18
+2    Dav    22
+
+格式：
+
+awk  选项    '条件 {操作}'    文件
+
+==========================
+条件
+
+正则
+awk   '/^root/{print $1,$6,$7}'  /etc/passwd
+
+
+free   -h  |  awk  '/Mem/{print $2}'
+
+==========================
+操作：
+print   打印
+
+{print}        打印整行
+{print $1}     打印第一个字段
+{print $1,$3}  打印第一、三字段
+
+
+位置变量：
+$1 第一个字段
+$2 第二个字段
+
+
+选项：
+-F   指定分隔符
+	-F":"  指定以冒号:作为分隔
+
+==========================
+/etc/shadow
+
+root:一大串密码::::::
+
+awk -F: '{print $1,$2}' /etc/shadow
+
+==========================
+/etc/passwd
+
+
+lisi:x:1001:1001::/home/lisi:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+用户名          家目录   默认终端
+
+
+显示所有的用户，以及他的家目录和默认终端
+
+==========================
+执行的时机
+
+BEGIN{}   做一些初始化工作
+{}        执行过程
+END{}     最后一步执行
+
+==========================
+如果命令非常长，需要换行，在末尾加上\，回车即可
+否则，直接回车，系统以为要执行命令，而不是换行
+
+awk -F: 'BEGIN{print "name","home","bash"}\
+/bash$/{print $1,$6,$7}\
+END{print "谢谢"}' /etc/passwd
+
+==========================
+选择题（测试）：
+
+做完，把文件重命名为 自己名字拼音.txt
+传到  root@176.4.11.42:/root/test
+
+==========================
+数据库
+
+京东、QQ、快手（工具）
+
+数据
+
+海量
+
+==========================
+以文件形式保存数据：
+
+name.txt
+周杰伦
+张学友
+刘德华
+吴宗宪
+
+Excel表
+
+====================
+MySQL（Mariadb同一个创始人）
+
+SQL语句
+
+每句话，以分号;结尾
+
+
+create table student(
+	id  int,
+	name  char(8),
+	age  int,
+	gender  char(2)
+);
+
+
+增删改查
+insert into student values(1,"michael",18,'m');
+insert into student values(2,"michae3",19,'f');
+insert into student values(3,"michae2",18,'m');
+
+delete from student where id=2;
+
+update student set age=22 where id=3;
+
+select name from student;
+
+======================
+MySQL安装
+
+yum  -y  install  mariadb-server   mariadb
+systemctl  restart  mariadb
+执行：mysql
+
+退出：exit  quit
+
+======================
+查看所有的数据库
+show  databases;
+
+创建数据库：
+create  database  stu;
+
+使用某个数据库：
+use  stu;
+
+查看"数据库"里的所有"数据表"：
+show  tables;
+
+查看数据表的描述信息：description（描述）
+desc student;
+
+增加一条数据：
+insert into student values(2,'Jordan',28,'M');
+
+查询数据：
+select  字段名   from  表名;
+
+select  name  from  student;
+查询student表里所有的name
+
+select  *  from  student;
+查询所有的字段
+
+删除一条数据：
+delete  from  student  where  id=1;
+
+删除数据表里的所有数据：
+delete  from  student;
+
+修改（更新）一条数据：
+update  student  set  age=88  where  id=2;
+
+=====================
+函数
+
+查看当前时间：
+select  now();
+
+查看当前数据库：
+select  database();
+
+
+

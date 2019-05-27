@@ -1,0 +1,53 @@
+#list{
+	list-style:none;
+	padding:0;
+	display:flex;
+}
+
+#list>li{
+	width:25%;
+	text-align:center;
+}
+
+#list a{
+	text-decoration:none;
+	color:rgb(88,88,88);
+}
+
+
+#list li:hover{
+	background:gray;
+}
+
+#list li:hover a{
+	color:red;
+}
+
+
+
+
+h1{
+	background:blue;
+	height:200px;
+	text-align:center;
+	line-height:200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

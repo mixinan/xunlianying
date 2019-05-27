@@ -1,0 +1,163 @@
+int a;
+scanf("%d",&a);
+
+if(a>=90){
+    优秀
+}else if(a>=80){
+    良好
+}else if(a>=60){
+    还行
+}else{
+    重修
+}
+
+
+
+
+switch...case....
+开关     情况
+
+int a;
+switch(a){
+   case 1:
+	printf("spring");;
+   break;
+
+   case 2:
+	printf("summer");
+   break;
+
+   case 3:
+	printf("autumn");
+   break;
+
+   case 4:
+	printf("winter");
+   break;
+
+   default:
+	printf("输入有误！");
+   break;
+}
+
+
+
+
+
+
+for循环
+
+int n;
+for(n=1; n<=10; n=n+1){
+	printf("hello ");
+}
+
+for(n=10; n>=1; n=n-1){
+	
+}
+
+
+for(变量初始化; 条件判断; 变量变化){
+	
+}
+
+双层循环
+1*1
+1*2 2*2
+1*3 2*3 3*3
+1*4 2*4 3*4 4*4
+.................
+1*9 2*9 3*9 4*9 5*9 ....8*9 9*9
+
+for(n=1;n<4;n=n+1){
+    printf("%d*3=%d ", n, n*3);
+}
+
+
+
+for(n=1;n<=9;n=n+1){
+   for(m=1;m<=n;m=m+1){
+	printf("%d*%d=%d ", m, n, m*n);
+   }
+}
+
+
+
+
+
+
+while循环
+
+while(条件判断){
+    执行的代码段
+}
+
+int n;
+while(n){
+	printf("hello");
+	break;
+}
+
+
+
+猜数字：
+	先有一个目标数字：b=15
+	
+	猜一猜：接收用户输入
+	int a;
+	
+	while(1){
+	    scanf("%d",&a);
+	    if(a>b){
+		大了
+	     }else if(a<b){
+		小了
+	     }else if(a==b){
+		恭喜你，答对了！
+		break;
+             }
+	}
+	
+
+
+
+for(n=1; ;n=n+1){
+
+}
+
+步长
+for(n=0; n<10; n=n+2){
+	printf("%d",n+1);
+}
+
+
+
+
+
+
+随机数： rand();
+
+#include <time.h>
+//种树
+srand(time(0));
+
+rand();
+
+
+printf();
+
+scanf();
+
+
+int sum(int a, int b){
+	int c;
+	c=a+b;
+	return c;
+}
+
+
+
+
+
+sum(6,7);
+

@@ -1,0 +1,239 @@
+scp  root@176.4.11.42:/root/day06.txt  ~
+密码：Taren1
+
+
+rht-vmctl  reset   classroom
+rht-vmctl  reset   server
+
+
+==========================
+CFO  首席财务官   耿玉雪
+
+==========================
+
+find(递归查找)
+
+find  目录  选项  选项值 
+
+find  /root  -type  f  -name  "*.txt"
+
+常用的选项：
+-type  类型  
+	d  文件夹
+	f  文件
+-name  名字
+	-name  "*.txt"  找到名字是"*.txt"的内容
+-mindepth  最小深度
+	-mindepth 3  查找目录深度至少为3的内容
+-maxdepth  最大深度
+	-maxdepth 3  查找目录深度不大于3的内容
+-user      属主
+	-user  student  查找属主是student用户的内容
+
+
+	
+处理find到的结果：
+-exec  命令  \;
+
+
+find  /root  -type  f  -name  "*.txt"  -exec  cp  {}  /text/ \;
+
+
+练习：在/root 下创建文件夹 student_files
+在 / 下，找到属主是studnet的所有文件，复制到 /root/student_files 里
+
+	
+==================================
+修改主机名
+
+查看：hostname
+
+第一种
+修改：vim   /etc/hostname
+	  guoxn.baidu.com
+	  
+重新连接，可以显示配置后的主机名
+
+
+第二种
+hostnamectl  set-hostname  要设置的主机名
+重新连接，可以显示配置后的主机名
+
+
+============================
+crontab
+周期性任务
+
+crontab  -e    (edit 编辑)
+编辑任务  
+
+crontab  -l    (list  列出)
+列出任务
+
+crontab  -r    (remove  移除)
+删除任务
+
+
+crontab  -e  -u  root
+以root用户的名义编辑任务
+
+
+任务编写格式：
+分   时   日   月   周    命令(脚本)
+*    *    *    *    *     date  >>  time.txt  
+
+
+========================
+.   作为路径时，表示当前目录
+
+
+cd  ..   上层目录
+touch   ../a.txt  在上层目录下，创建a.txt
+touch   ./a.txt   在当前目录下，创建a.txt
+
+
+========================
+yum源
+
+
+请把 http://content.example.com/rhel7.0/x86_64/dvd/ 作为yum源
+
+
+第一种：
+
+编辑文件   vim  /etc/yum.repos.d/xx.repo
+
+
+[仓库名]
+name = 名字
+baseurl = http://content.example.com/rhel7.0/x86_64/dvd/
+enabled = 1
+gpgcheck = 0
+
+
+第二种：
+
+yum-config-manager  --add-repo   yum源地址
+
+效果：
+在 /etc/yum.repos.d/ 目录下，自动创建了一个文件 “yum源地址.repo”
+自动添加的内容如下：
+
+[yum源地址]
+name = added from:yum源地址
+baseurl = yum源地址
+enabled = 1
+
+需要我们做的：
+添加一句  gpgcheck = 0
+
+
+================================
+练习：
+1. 删除 /etc/yum.repos.d/ 目录下，所有的内容
+	rm   -rf  /etc/yum.repos.d/*
+
+2. 在 /etc/yum.repos.d/ 目录下，创建 xx.repo
+    
+[仓库名]
+name = 名字
+baseurl = http://content.example.com/rhel7.0/x86_64/dvd/
+enabled = 1
+gpgcheck = 0
+
+3. yum  clean  all
+   yum  repolist
+
+===============================
+
+安装软件
+
+yum   -y   install   要安装的软件名
+yum   -y   remove    要卸载的软件名
+
+
+
+rpm   -q   tree   查询tree是否安装
+
+结果：
+未安装软件包 tree
+tree-1.6.0-10.el7.x86_64
+
+
+==============================
+在  /etc/yum.repos.d/  目录下，创建并编辑一个文件
+
+第一种：
+
+touch   /etc/yum.repos.d/abc.repo
+vim     /etc/yum.repos.d/abc.repo
+
+
+第二种：
+
+cd    /etc/yum.repos.d
+touch   abc.repo
+vim     abc.repo
+
+
+==============
+快捷键
+alt + .     直接使用“上次命令”中的最后一个参数
+
+
+==============
+练习1：  
+
+删除 /etc/yum.repos.d/*
+在 /etc/yum.repos.d/ 目录下新建 redhat.repo
+搭建yum源，源地址：http://content.example.com/rhel7.0/x86_64/dvd/
+
+yum clean all
+yum  repolist
+
+练习2：
+修改server0的主机名为  你的名字首字母.tedu.cn
+重新连接，可以显示
+
+==============================
+执行脚本文件的几种方式
+
+1.
+sh    abc.sh
+
+这种方法，不需要执行权限
+
+原理：重新开启一个子shell，在子shell里运行脚本里的命令
+
+2.
+先给 abc.sh 增加执行权限
+chmod  u+x  abc.sh 
+然后在终端运行   /root/abc.sh  或者 ./abc.sh
+
+3.
+source   abc.sh
+.   abc.sh
+
+两个命令，等效。这种方法，不需要执行权限
+
+把 abc.sh 里的命令，在当前shell里执行
+
+练习：
+=================
+
+新建一个脚本文件 1210.sh
+
+功能：
+
+在当前目录里，创建2个文件夹： 1210a  1210b
+在 1210a 里，新建文件 a.txt  b.txt
+在 1210b 里，新建文件 1.mp3  2.mp3
+把 1210a 和 1210b 里的内容，显示在终端窗口里
+
+
+执行该脚本文件
+
+
+
+
+

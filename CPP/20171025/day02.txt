@@ -1,0 +1,179 @@
+q#include <stdio.h>
+int main(){
+    printf("hello world!\n");
+    return 0;
+}
+
+
+
+#include <stdio.h>
+预处理指令，包含头文件stdio.h
+先把stdio.h的内容导入进来
+然后跟下面的语句组成新的文件
+
+如果是系统的头文件，用<>
+如果是自己写的头文件，用""
+
+gcc -E test.c
+
+gcc test.c
+
+
+-o    生成指定名称的可执行文件
+gcc test.c -o test.out
+
+
+
+
+验证： 自己写一个test.h头文件
+	写入自己的内容
+	然后在test.c里引入（include）
+	
+	用户自己的头文件，用""
+	系统的头文件，用<>
+	
+	gcc -E test.c
+
+
+int main(){
+    printf("hello world!\n");
+    return 0;
+}
+
+
+int 
+	整数类型，跟return的结果对应
+	函数执行完的结果数据类型
+main
+	主函数，相当于程序入口
+()
+	参数列表，可以有多个，有逗号隔开
+	
+	爆米花 makebmh(爆米花机，玉米，糖，奶油){
+		布置机器，插电;
+		洗玉米;
+		把玉米放入机器，放糖、奶油;
+		加热；
+		等5分钟；
+		return 一桶爆米花;
+	}
+
+
+	int qiuhe(int a,int b){
+		
+		return a+b;
+	}
+
+{}
+	执行代码块
+	给代码分组管理
+	每一句代码，以分号(;)结尾
+	每一句代码，占一行
+	如果代码有嵌套关系，用tab键缩进
+	如果有(){}等，先补全括号，再往里补充内容
+return
+	程序执行完的结果反馈
+	可以表示运算结果
+	也可以表示运算状态（成功0,失败-1）
+
+
+
+变量
+     值可以变化，代表一个内存地址，来存储一个数字
+
+     命名：不能与系统关键字一样
+	   见名知意
+	   aaaa
+	   abcdef
+
+	   width=10;
+	   height=20;
+	   times=6;
+	   buttonNumber=10;
+
+	   注意大小写 a=10
+	   return A+5;
+
+	   格式：驼峰命名、下划线式命名(烤串式)
+		buttonNumber
+		button_number
+q
+	   以字母、下划线开头
+	   后面可以是数字、字母、下划线
+
+	   ab
+	   a1
+	   a_
+	   _5
+	   5a
+
+
+声明变量：  int(整数类型 integer)
+
+	int a;    声明
+	a=6;      赋值
+
+
+	int a=6;  声明+赋值
+
+	int a=5,b=6,c=7;
+
+	int a=5;
+	int b=6;
+	int c=7;
+
+
+
+	
+
+
+	整数占位符： %d
+
+
+	printf("a=%d,b=%d",a,b);
+
+	第二个参数，可以是表示数字的表达式
+	printf("a+6=%d\n",a+6);
+
+	练习：声明长方形的长是10，宽是6
+		打印出它的周长
+		打印出它的面积
+
+
+		int c=10;
+		int k=6;
+
+		printf("它的周长是%d\n",(c+k)*2);
+		printf("它的面积是%d\n",c*k);
+
+		+ - * /
+
+		
+		int a;
+		scanf("%d",&a);
+		printf("a=%d\n",a);
+
+
+		scanf("%d%d",&a,&b);
+
+
+
+
+
+
+	printf("hello");
+
+
+	转义字符： \n  换行
+
+	
+
+
+	a+5;  11
+
+	a=8;
+	a+5;  13
+	
+
+
+	

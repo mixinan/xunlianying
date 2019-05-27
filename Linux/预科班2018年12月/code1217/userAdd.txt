@@ -1,0 +1,30 @@
+#!/bin/bash
+
+genPswd(){
+	n=$1
+	data="abcdefghijklmnopqrstuvwxyz0123456789"
+	length=${#data}
+	
+	result=""
+
+	for a in `seq $n`
+	do
+		rand=$[RANDOM%length]
+		c=${data:rand:1}
+		result=$result$c
+	done
+
+	echo $result
+}
+
+
+
+
+read -p "请输入用户名：" user
+[ -z $user ] && exit
+useradd $user
+
+read -p "请指定密码位数:" num
+pswd=`genPswd $num`
+echo "$user---$pswd"
+echo $pswd | passwd --stdin $user 

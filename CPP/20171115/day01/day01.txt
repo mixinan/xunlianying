@@ -1,0 +1,16 @@
+-        rw-    rw-     r--
+类型     权限
+         user   group   other   all
+         u      g       o       a
+
+ r     w      x         -
+ read  write  execute   没有权限
+
++   u+x   g+r  o+w
+-   u-w
+=   u=r--
+
+ 命令：   chmod  u+x  a.txt
+
+练习：创建(touch)一个文件 1114.txt
+	  把它的权限改为  r--rwxr-x

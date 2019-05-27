@@ -1,0 +1,267 @@
+
+
+CSS
+层叠样式表
+
+常见的样式：
+字体颜色    color:red
+背景颜色    background
+宽和高      width    height
+
+
+边框        border
+border: 1px solid red;
+      边框粗细  边框样式   颜色
+	  double  双线
+	  dashed  虚线
+	  dotted  点划线
+
+
+
+定位        position   top   bottom  left   right
+显示方式    float   flex
+间距        margin   padding
+
+
+
+
+border-radius: 8px; 
+	圆角半径
+
+
+
+   
+width: 100px;           宽度
+
+padding: 10px;          内间距
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+
+text-align: center;     文本对齐方式
+		left  左对齐
+		right 靠右
+
+
+font-size: 25px;        字体大小
+font-style: italic;     字体的样式
+font-family: 微软雅黑;  字体
+
+text-shadow: 1px 1px 1px red;   文字阴影
+			水平  垂直  偏移距离  颜色
+
+margin: 10px;         外间距
+	margin-left:10px;
+	right
+	top
+	bottom
+	
+	
+	margin: 50px 20px 30px 0;
+			上   右   下   左
+			
+	把标记里的内容居中：
+		text-align:center;
+	把标记本身居中：
+		margin: 0 auto;
+			
+	
+	
+	
+
+cursor: wait;           光标的样式
+		help  crosshair  pointer  move
+
+
+
+
+
+内联样式
+	写在开始标记的style属性里
+	style="属性1:属性1的值;属性2:属性2的值;"
+	<p style="样式1;样式2;样式3">内容</p>
+	
+内部样式
+	把所有的样式，写在head里的style标记里
+	<head>
+		<style>
+			h1{
+				border:1px solid red;
+				border-radius:6px;
+				color:gray;
+				background:#aaa;
+			}
+			
+			
+		</style>
+	</head>
+	
+	
+	
+	
+	
+	
+外部样式
+
+单独创建一个 xx.css 文件，写所有的样式
+在 xx.html 文件里，专门写网页结构
+
+在 xx.html 的 head 标记里，通过 link 来关联二者
+<link href="xx.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+=======================
+
+
+颜色：
+
+第一种：英文单词
+	
+	blue  red  yellow green 
+	black orange white 
+	
+	弊端：单词量有限，无法描绘各种颜色
+
+
+
+第二种：rgb(50,60,70)   rgba(50,60,70,0.6)
+	
+	三个基本色：
+	red   红
+	green 绿
+	blue  蓝
+	
+	alpha 透明度
+	
+	颜色数值范围：0-255
+	透明度数值范围：0-1
+
+
+
+
+
+
+第三种：#ffaa00  #c0c
+
+	0~15：0123456789abcdef
+	
+	6位十六进制数表示
+	前2位： 红
+	中2位： 绿
+	末2位： 蓝
+	
+	3位十六进制数表示
+	第1位： 红
+	第2位： 绿
+	第3位： 蓝
+	
+
+
+========================
+
+CSS选择器：
+
+id选择器
+	<p id="abc">内容</p>
+	
+	语法： #id值
+	
+	#abc{
+		color:red;
+	}
+	
+	
+	
+class选择器
+	<p class="boy">内容</p>
+	<b class="boy">内容</b>
+	
+	.boy{
+		color:blue;
+	}
+	
+	
+
+
+标记选择器
+
+ul{
+	padding:0;
+	list-style:none;
+}
+
+
+
+text-decoration:none;
+去掉默认的下划线
+
+
+hover  鼠标悬停状态
+
+a{
+
+}
+
+
+a:hover{
+	cursor:wait;
+}
+
+p{}
+p:hover{}
+
+
+
+子代选择器
+<div>
+	<div id="abc">
+		<p>内容</p>
+		<b>内容<b>
+	</div>
+</div>
+
+
+#abc>p{
+	
+}
+
+
+
+
+
+
+
+
+
+
+后代选择器
+<div>
+	<div id="abc">
+		<p>内容</p>
+		<b>内容<b>
+		<div>
+			<p>内容</p>
+		</div>
+	</div>
+</div>
+
+
+#abc p{
+	color:red;
+}
+
+
+
+群组选择器
+p,#abc,.boy,div{
+	color:red;
+}
+
+
+
+
+

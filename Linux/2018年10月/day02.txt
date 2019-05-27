@@ -1,0 +1,375 @@
+day02
+
+复习：
+mkdir  music  movie  picture
+touch  a  b   c
+rm   -rf  music
+date  时间
+ls  
+cd  路径
+cal 09 2018    日历
+
+clear 
+ctrl + l   清空
+
+pwd
+(print working directory)
+
+mkdir  -p  a/b/c
+
+poweroff
+
+reboot
+
+路径
+绝对路径  /
+相对路径  以当前路径作为开始  music
+
+cd   /
+pwd
+ls
+
+
+==================
+ls  路径
+
+ls     默认当前所在的文件夹  (list)
+ls  /  查看根目录里面的内容
+ls  /root
+ls  /root/a.txt
+
+
+rm /root/a.mp3
+rm a.mp3
+
+
+选项：
+ls  -a   (all)
+显示所有的内容（包含隐藏文件）
+
+
+ls  -l  (long)
+显示内容的长格式（详细信息）
+
+-h  human
+
+
+ls -lh   以人能够读懂的格式显示
+h和l配合使用，才有效
+
+
+
+
+ls -l  1.mp3
+查看1.mp3文件的详细信息
+
+ls  -l    music
+查看music文件夹“里面”内容的详细信息
+
+ls  -ld   music
+查看music文件夹“本身”的详细信息
+( d =》 directory 文件夹)
+
+
+cd  ..
+ 切换到“上一层”文件夹（父目录）
+
+
+练习：
+创建2个文件夹  picture  music
+在 picture 里创建 1.png 2.jpg 3.gif
+在 music 里创建 a.mp3 b.mp4 c.avi
+把两个文件夹的内容通过 ls 显示在屏幕上
+把它们全部删除
+
+mkdir   picture   music
+cd   picture
+touch 	1.png    2.jpg    3.gif
+cd  ..
+cd  music
+touch  a.mp3  b.mp4 c.avi
+cd ..
+ls  music  picture
+
+rm  -rf  music  picture
+
+
+
+
+tab 自动补全命令
+如果能够直接匹配准确，自动补全
+否则，按两次tab，提示所有相关的内容
+
+
+
+
+上下方向键
+切换输过的历史命令
+
+touch  music/a.mp3
+
+
+
+echo  回声
+echo "hello"
+结果：hello
+
+
+输出重定向
+>   覆盖
+	ls > a.txt
+	echo hello > a.txt
+
+>>   追加（ 注意：不是书名号 》）
+	ls >> a.txt
+
+	
+
+把 hello world 写入 a.txt
+echo “hello world” > a.txt
+echo 123456 >> a.txt
+
+	
+	
+	
+练习：
+把当前目录里内容的详细信息，写入a.txt
+追加本月的日历到a.txt
+
+
+
+查看文本文件内容
+cat  a.txt
+cat  -n   a.txt  显示内容和行号
+(concatinate)
+
+head  a.txt      显示a.txt前10行（开头）
+head  -3  a.txt  显示a.txt前3行
+
+tail  a.txt      显示a.txt后10行（结尾）
+tail  -3  a.txt  显示a.txt后3行
+
+
+
+
+
+
+
+管道   |
+ls | head | tail -2
+把管道前面的结果，输送给后面进行操作
+cat -n a.txt | head | tail -2
+
+
+ls -l a.txt
+
+
+权限
+-       rw- r-- r--
+类型     权限
+
+类型：
+文件    -
+文件夹  d
+链接    l
+
+
+
+
+
+
+权限
+rw-    r--      r--
+user   group    others
+u      g        o
+
+
+r    read    读
+w    write   写
+x    execute 执行
+-    无
+
+
+修改权限
+chmod  
+
++   u+x    给user增加执行权限
+-   o-r    给others取消读权限
+=   u=rwx  给user设置rwx权限
+
+chmod  u+x  a.txt
+chmod  g-w  a.txt
+chmod  o=---  a.txt
+
+chmod  u+x,g-w,o=---  a.txt
+
+ls -l a.txt
+
+
+
+
+以“数字”形式修改权限
+rwx-
+4210
+
+chmod 666 a.txt
+	  rw-  rw-  rw-
+	  
+	  
+练习：
+	新建文件 test.sh
+	查看 test.sh 的权限
+		
+	修改 test.sh的权限为
+		-   rwx---rw-
+		
+	chmod  706  test.sh
+	
+	chmod   u    g   o   + = -
+	
+	
+	web：
+	html
+	css
+	JavaScript
+	
+
+
+
+
+
+编辑文件：  vim
+
+用法：
+	vim   a.txt
+	如果文件已存在，则打开
+	如果不存在，创建并打开
+	
+	
+
+编辑模式：
+	可以修改内容
+	在一般模式下，按 i 进入
+	(insert)
+	按 Esc 键，退出编辑模式
+	
+一般模式：
+	通过vim进入后的状态
+	在编辑模式下，按 ESC 
+	
+命令模式:
+	在一般模式下，按英文冒号 :
+	可以执行相关命令
+	保存        :w  (write)
+	退出        :q  (quit)
+	保存并退出  :wq (write  quit)
+				:x  不推荐使用
+	强制退出    :q!
+	设置行号    :set nu   显示行号
+				:set nonu 不显示行号
+	自动缩进    :set ai   缩进
+				:set noai 不缩进
+				
+				
+复制：nyy （n可以是整数，比如2,3,4）
+	从当前行开始，复制n行
+
+粘贴：np   （paste） 
+	在当前行下方，粘贴n次
+
+剪切（删除）： ndd
+	从当前行开始，剪切n行
+
+	
+	
+	
+跳转行：
+ngg   跳到第n行
+G     跳到最后一行
+
+
+
+
+
+ctrl + u  往上翻半页(up)
+ctrl + d  往下翻半页(down)
+
+
+查找：
+在一般模式下，/ 或 ? 进入查找状态
+输入关键字，按回车，可以查找对应内容
+/ 从上往下找
+? 从下往上找
+
+如果匹配项比较多，按 n 切换下一个(next)
+
+替换：
+:%s/old/new/g
+
+
+
+读取“别的文件”内容，到当前行下方
+:r  1.txt
+
+另存为
+:w  2.txt
+
+
+
+
+rht-vmctl reset classroom
+rht-vmctl reset server
+
+not listed
+root
+redhat
+
+
+
+
+ifconfig  查看ip地址
+ifconfig | head -2
+
+
+远程连接：
+ssh  root@远程机的ip地址
+以root身份远程登录
+
+ssh  -X  root@远程机的ip地址
+支持远程操作图形化界面
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

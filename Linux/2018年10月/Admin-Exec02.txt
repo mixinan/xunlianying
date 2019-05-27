@@ -1,0 +1,65 @@
+案例：ls命令练习
+  1. 查看根目录（/）下内容
+        ls   /
+  2. 显示根目录内容的详细属性
+        ls  -l   /
+  3. 显示/boot目录内容的详细属性
+
+  4. 显示/root的内容
+
+  5. 显示/opt目录内容的详细属性，以人类易读的形式
+        ls   -lh  /opt
+
+案例：查看文件内容练习
+  1.查看/etc/passwd文件内容
+
+  2.查看/etc/default/useradd文件内容
+
+  3.查看/etc/default/useradd文件内容，并显示行号
+		cat  -n  /etc/default/useradd
+  4.显示文件/etc/passwd文件内容的头3行内容
+		head -3  /etc/passwd
+  5.显示文件/etc/passwd文件内容的尾4行内容
+
+  6.显示文件/etc/passwd文件内容的头12行内容
+
+  7.利用grep命令显示/etc/passwd文件内容中包含root的行
+		grep  "root"   /etc/passwd
+
+案例：cd命令练习(change   directory)
+  1.切换到根目录，利用pwd命令查看当前位置
+       cd   /
+	   pwd
+  2.切换到/root，利用pwd命令查看当前位置
+	   cd  /root;pwd
+  5.切换到/etc/pki，利用pwd命令查看当前位置,
+	 再利用 cd  .. 返回上一层目录
+	 cd /etc/pki;pwd;cd ..
+
+
+案例：创建命令练习
+  1.请在/root 创建三个目录(文件夹)分别为student、file、nsd18
+		mkdir  student  file   nsd18
+		
+  2.请在/opt 创建三个文本文件分别为1.txt、a.txt、nsd.txt
+		touch  /opt/1.txt  /opt/a.txt  /opt/nsd.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

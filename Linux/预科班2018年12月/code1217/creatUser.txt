@@ -1,0 +1,28 @@
+#!/bin/bash
+
+data="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
+length=${#data}
+
+genePswd(){
+	pswd=""
+	for a in `seq 8`
+	do
+		rand=$[RANDOM%length]
+		c=${data:rand:1}
+		pswd="$pswd$c"
+	done
+	echo $pswd
+}
+
+read -p "input user:" user
+[ -z $user ] && exit
+
+
+pw1=`genePswd`
+pw2=`genePswd`
+pw3=`genePswd`
+pw4=`genePswd`
+pw5=`genePswd`
+
+
+echo $user---$pw1---$pw2---$pw3---$pw4---$pw5

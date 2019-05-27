@@ -1,0 +1,233 @@
+安装数据库
+
+15分钟
+
+mysql-5.7.17.tar
+
+scp mysql-5.7.17.tar  root@172.25.0.11:/root
+
+gos
+
+tar -xvf mysql-5.7.17.tar
+
+===================
+hoteldb
+
+food:
+fid  int,
+fname char(20),
+price int
+
+emp:
+eid int,
+salary int,
+jtime char(20)
+
+====================
+修改表结构：
+desc  表名;   查看表结构
+
+alter  table  表名
+	操作  字段  类型(宽度);
+
+添加字段     add
+修改字段类型 modify
+修改字段名   change
+删除字段     drop
+修改表名     rename
+
+指定字段位置   after   first
+
+===================
+字符数据类型
+char(10)
+varchar(10)
+
+===================
+添加字段
+alter table emp
+	add ename char(10);
+
+alter table emp
+	add eposition char(10) first;
+
+alter table emp
+	add ephone char(10) after salary;
+
+===================
+删除字段
+alter table emp
+	drop salary;
+
+===================
+修改字段名
+alter table emp
+	change ephone telephone char(15);
+	
+===================
+修改字段类型、长度、位置
+alter table emp
+	modify ename char(20);
+	
+alter table emp
+	modify ename char(20) first;
+	
+alter table food
+	modify fname varchar(20) after fid;
+
+===================
+修改表名
+alter table employee 
+	rename emp;
+
+===================
+约束条件
+
+not null 不能为空
+
+
+create table t1(
+id int not null,
+name varchar(20)
+);
+
+insert into t1 values(null,"michael");
+
+insert into t1 (name) values("dog");
+
+====================
+default  默认值
+
+create table t2(
+id int not null,
+name varchar(20) default "wuming"
+);
+
+
+insert  into  t2 (id) values(2);
+
+
+create table t3(
+id int not null,
+age int default 18
+);
+
+insert into t3 (id) values (1);
+
+========================
+唯一 unique
+
+create table t4(
+id int unique,
+age int
+);
+
+insert  into  t4 values(1,18);
+insert  into  t4 values(2,23);
+insert  into  t4 values(1,23);
+
+========================
+主键(不能为空，唯一)
+primary key
+
+create table t5(
+id int primary key,
+age int
+);
+
+
+insert  into  t5 values(1,18);
+insert  into  t5 values(1,28);
+insert  into  t5 values(null,28);
+
+
+========================
+自增长   auto_increment
+
+create table t6(
+id int primary key auto_increment,
+age int
+);
+
+insert  into  t6 (age) values(18);
+insert  into  t6 values(null,28);
+insert  into  t6 values(null,31);
+
+=========================
+练习：
+
+数据库 dicdb
+
+表(支持中文) 
+
+words：
+id 主键 自增长,
+eng varchar(20) 唯一,
+chn varchar(30) 不能为空
+ 
+插入6条数据：
+ls    查看文件夹里的内容
+cd    切换文件夹
+pwd   打印当前的路径
+date  日期时间
+cal   日历
+touch 创建文件
+=======================primary key auto_increment
+unique  not null   create  table  insert into values
+
+ 
+create  database  dicdb;
+
+use dicdb;
+
+create table words(
+id  int  primary  key  auto_increment,
+eng varchar(20) unique,
+chn varchar(50) not null
+)default charset=utf8;
+
+drop table words;
+
+desc words;
+ 
+insert  into  words values
+(null,"ls","列出所有内容"),
+(null,"pwd","打印当前文件夹路径");
+
+select * from words;
+
+select chn from word where eng="ls";
+
+ 
+=======================
+错误处理
+
+Can't create database 'dicdb'; database exists
+
+数据库已经存在，不能再次创建
+
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'valuse
+(null,"ls","列出所有内容")' at line 1
+
+有个SQL语法错误，在第一行(at line 1)的'valuse (null,"ls","列出所有内容")'旁边(near)
+
+Unknown column 'a' in 'field list'
+
+在字段列表里，没有“a”这一列
+
+
+=======================
+模糊查找 like
+%          任意长度
+_(下划线)  一个字符
+
+
+select * from words where eng like "%w%";
+
+=======================
+
+
+
+
+
+

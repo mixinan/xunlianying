@@ -1,0 +1,89 @@
+-      rw-       rw-      r--
+类型  用户权限 群组权限  其他用户的权限
+       user      group    other
+       u         g        o
+
+
+
+       a   all  所有用户
+       chmod  a=rwx  a.txt
+
+
+       用数字表示权限
+       6   6   6
+       rw- rw- rw-
+       4    5     6
+       r--  r-x   rw-
+
+       chmod 666 a.txt
+
+       3    2    1
+       -wx  -w-  --x
+
+       rwx-
+       4210
+
+
+
+
+r    read
+w    write
+x    execute
+-    无权限
+
+设置方法：  +  -  =
+u+x     给user增加x权限
+u-w     给user删除w权限
+u=rwx   给user的权限设置为rwx
+
+g+x
+o-w
+o+x
+
+chmod u-x,g=rw-,o-r a.txt
+
+
+
+
+tar cvf a.tar music b.txt a.txt ccc.c
+
+
+
+
+创建文件  touch a.txt
+创建文件夹 mkdir a
+显示当前目录内容 ls
+	ls -a
+	   la
+	ls -l
+	   ll
+	ls -al
+修改权限 chmod u+x a.txt
+	u g o a
+	r w x -
+	+ - =
+回声 echo
+输出重定向  >（覆盖）  >>（换行追加）
+打印(显示)当前路径  pwd
+删除文件夹 rm -r dir/
+	rm -r 文件 文件夹
+创建多层目录 mkdir -p a/b/c
+删除文件 rm 文件名
+日历 cal
+日期 date
+清空屏幕 clear
+代码补全 tab
+打包 tar cvf a.tar 要打包的内容
+展开 tar xvf a.tar
+     tar xvf a.tar -C 要展开到的路径
+压缩 tar zcvf a.tar.gz 要打包压缩的内容
+解压 tar zxvf a.tar.gz
+复制 cp 要复制的内容 要粘贴的地方
+	cp a.txt b.txt
+移动 mv 要移动的内容 要移动的地方
+脚本 一次性写完所有命令，然后执行
+交互 你一言我一语
+
+
+
+

@@ -1,0 +1,163 @@
+#include <stdio.h>
+int main(){
+    printf("hello wolrd\n");
+    return 0;
+}
+
+
+
+gcc hello.c
+gcc -E hello.c   处理预处理指令
+
+gcc hello.c  -o  hello.out
+
+验证：自己写一个xx.h头文件
+#include "xx.h"
+
+
+#include <stdio.h>
+预处理指令
+< >   系统头文件
+" "   用户自己写的头文件
+作用：把要包含的文件的内容导过来
+跟用户自己写的内容合并成新的文件
+
+
+
+
+
+
+int  整数类型
+integer
+函数（方法）执行完的结果类型
+
+
+爆米花  做爆米花(机器,电,玉米,糖){
+	开机；
+	洗玉米；
+	放玉米和糖；
+	等待10分钟；
+	开锅；
+	关机；
+	取出爆米花；
+	return 一桶爆米花;
+}
+
+int add(int a,int b){
+	return a+b;
+}
+
+
+
+
+main 
+程序的主函数，main是函数名称
+它是程序入口，c语言程序执行时先找main函数
+
+
+
+()
+放参数，已知条件
+
+
+{}
+函数的主体，所有的逻辑，都写在它里面
+
+
+return
+返回函数的运算结果，比如算术运算
+表示函数的执行成功与否
+
+
+
+写代码注意：
+	用{}给代码分组管理，并起一个名字
+	每一行，写一句代码，用英文分号结尾
+	如果有(){}<>""等，先把括号补全，再往里补充内容
+	如果有嵌套关系，被嵌套的内容要缩进（tab）
+
+
+
+	变量：
+		int a=6;
+
+
+		变量的命名：
+			1、以字母或下划线开头
+				后面可以是数字、字母、下划线
+			2、不能跟系统关键字一样
+					int main return include if for
+			3、见名知意
+					int abcdefg=6;
+					int width=6;
+					int height=8;
+					int kuan=10;
+			4、名字必须是一个单词
+					驼峰命名法
+					下划线式命名法（烤串法）
+					int user_name = 6;
+					int userName=6;
+
+
+	声明一个变量：
+		int a;   声明了一个整数变量，叫a
+		a=8;     给变量a赋值为8
+
+
+		int a=8;
+
+
+
+		一个变量，只能声明一次；
+		int a=8;
+		a=10;
+		a=6;
+
+
+		printf();
+
+		占位符   
+		整数占位符int       %d
+
+		用法：  printf("a是%d",a);
+
+		练习： 声明两个变量a=10,b=6
+		打印长方形的周长和面积
+
+
+
+		int a=10;
+		int b=6;
+
+
+		int a=10,b=6;
+
+
+		输入：
+			int a;
+			int b;
+			scanf("%d%d",&a,&b);
+			printf("a=%d\n",a);
+
+
+			&  取地址符
+			&a
+
+
+stdio.h
+
+standard
+input
+output
+
+
+
+
+
+
+
+
+
+
+
+

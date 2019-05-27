@@ -1,0 +1,201 @@
+scp  root@176.4.11.42:/root/day14.txt  /root
+密码：Taren1
+
+==============================
+
+\h，回车     查看帮助
+\c，回车     结束本次输入，重新输入
+
+
+=============================
+练习（在脚本里编写，在mysql里验证）：
+
+创建数据库 studb
+
+在 studb 库里，创建数据表 stuinfo
+id   int
+name char(8)
+age  int
+
+插入数据如下：
+1   Jay    32
+2   Eason  29
+3   Edison 27
+
+查询所有数据
+
+=======================
+数据库名称
+不要以数字开头，必须是数字、字母、下划线
+区分大小写
+不要用系统的关键字
+
+=======================
+删除数据表
+drop  table  表名;
+
+删除数据库
+drop  database  库名;
+
+
+查看建表语句：
+show create table 表名;
+
+
+支持中文：
+create table stuinfo(
+	id  int
+)default charset=utf8;
+
+
+============================
+rpm 安装软件包
+
+rpm  -ivh   软件包名
+	install 安装
+	
+rpm  -Uvh   软件包名
+	update  更新、升级
+
+rpm  -q   软件包名
+	query  查询
+
+
+======================
+查看已安装的mysql相关软件
+
+rpm  -qa | grep  mysql
+	
+======================
+开启MySQL服务
+systemctl  start  mysqld
+
+等待30秒左右，在做初始化
+ls   /var/lib/mysql/
+
+设置为开机自启动
+systemctl  enable  mysqld
+
+查看mysql服务的状态
+systemctl  status  mysqld
+
+======================
+使用MySQL
+
+登录MySQL服务器
+mysql  -h服务器IP地址或主机名  -u用户名  -p密码
+
+初始密码获取：
+grep   'password'   /var/log/mysqld.log
+
+mysql  -hlocalhost  -uroot  -p'<I1KMfyo)r.y'
+
+==========================
+使用初始密码进入后，无法进行操作
+
+重置密码：
+alter user root@"localhost" identified by "123456";
+
+quit
+
+mysql  -u  root  -p123456
+
+==========================
+一个数据库，是一个文件夹
+
+ls  /var/lib/mysql/
+
+==========================
+练习：
+
+创建数据库 xjkdb
+创建数据表 hotel  street  company
+
+
+hotel: 
+id int,
+num int,  
+name char(20),
+position char(50)
+
+
+create table hotel(
+	id int,
+	num int,  
+	name char(20),
+	position char(50)
+)default charset=utf8;
+
+
+insert into hotel values(1,20,"江苏饭店","太平南路300号");
+insert into hotel values(2,30,"米米花快餐","太平南路288号");
+
+insert into hotel values
+(3,13,"jsfd2","tpnl3001"),
+(4,45,"jsfd3","tpnl3002"),
+(5,88,"jsfd4","tpnl3003");
+
+
+select * from hotel;
+
+
+street:
+id int,
+name char(20),
+width  int,
+length  int
+
+
+
+create table street(
+	id int,
+	name char(20),
+	width  int,
+	length  int
+)default charset=utf8;
+
+
+
+
+company:
+id int,
+num int,
+name char(20),
+position char(50)
+
+
+create table company(
+	id int,
+	num int,
+	name char(20),
+	position char(50)
+)default charset=utf8;
+	
+	
+===========================
+排序显示
+order by
+
+select * from 表名 order by 某个字段  desc/asc;
+
+asc  ascending order  升序
+desc descending order 降序
+
+===========================
+主键
+primary key
+
+自增长
+
+auto_increment
+
+
+
+
+
+
+
+
+
+
+

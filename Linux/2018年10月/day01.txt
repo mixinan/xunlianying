@@ -1,0 +1,316 @@
+
+开发架构师
+运维架构师
+
+英语：
+性格：
+专业：
+沟通：
+全面性：
+大计划：2018年
+项目汇报：每个月一次 
+
+自我介绍（第一次）
+
+电影《斯诺登》
+
+地址：南京市秦淮区太平南路333号金陵御景园8楼达内科技
+
+
+
+
+互联网“项目”的运作流程：
+产品部门	
+设计部门
+	文档（#ffaa08）
+开发部门
+	前端部门(网站，web)
+	后端部门(访问数据库)
+	移动端(Android，iOS)
+测试部门
+运维部门
+	上线、保证正常运转、服务器安全、监控(复用)等
+市场部门
+运营部门
+
+
+
+服务器
+性能比较高、价格比较高的计算机
+
+
+计算机，由硬件、软件组成。
+硬件：显示器、键盘、鼠标、硬盘……可以触摸到的物理设备。
+软件：可以控制硬件设备的程序。
+
+操作系统：
+windows：微软
+iOS
+Android
+Linux
+Mac
+
+
+windows:
+	图形化
+	鼠标
+	收费
+	闭源（源代码）
+	家庭
+	客户端
+	
+Linux:
+	字符界面
+	键盘
+	免费
+	开源
+	稳定性
+	服务器
+	企业使用（技术人员）
+	
+	
+	
+命令
+
+人与人：
+进来、坐下、滚
+
+人与计算机：
+poweroff、reboot、cd
+
+
+
+命令的格式：
+
+命令   [选项]    [参数]
+滚      翻着     大门口
+
+
+
+命令  
+poweroff
+
+命令    [选项]
+ls      -a (all)
+
+
+命令    [选项]   [参数]
+cat      -n       a.txt
+
+
+命令     [参数]
+touch     a.txt
+
+=========================
+
+文件
+
+创建
+	touch a.txt
+	touch b.txt c.txt d.txt
+	
+	ls(查看当前目录里的内容)
+
+删除
+	rm a.txt   (remove)
+	 
+	rm -f a.txt  (force)
+	rm -f b.txt c.txt d.txt
+	
+	
+	
+clear 命令
+清空当前窗口的字符
+ctrl + l （L）
+ctrl + u  
+ctrl + w 
+ctrl + c
+上下方向键，可以从历史命令里查找
+
+
+
+
+文件夹(目录/路径)
+
+创建
+mkdir  Jay
+(make directory)
+mkdir a b c 
+
+mkdir  -p  Michael/Thriller/abc
+(parent)缺啥补啥
+
+
+删除
+rm  -r   Michael
+(recursive) 递归的
+
+rm -rf  Michael
+rm -rf  a music movie
+
+
+
+练习：
+创建文件  1.mp3   2.mp3   3.mp3  1.jpg  2.jpg
+创建文件夹   mp3   picture
+
+
+date    时间
+
+可以用于记录故障发生的时间
+
+
+cal    日历
+(calendar)
+cal 2018    显示2018的日历
+cal 08 2018 显示2018年8月份日历
+
+
+路径
+===============
+Linux
+
+根目录   /
+/root   根目录下有个文件夹，叫root
+/home/abc/music/a.mp3
+
+
+绝对路径
+以根目录/作为开始的路径，是绝对路径
+/root
+
+rm /root/1.mp3
+
+相对路径
+以当前目录作为开始（参照）
+
+rm 1.mp3
+touch a.txt
+touch /root/a.txt
+
+
+
+
+cd   切换文件夹
+（change  directory）
+用法：  
+    cd  要切换到的路径
+
+cd  /root
+cd  /
+
+
+pwd  显示当前的路径(我在哪儿)
+(print  working  directory)
+
+
+
+rm   remove
+
+不明觉厉
+虽然看不明白，但是觉得很厉害。
+
+	
+	
+Ctrl + c   中断当前进程
+
+
+
+
+显示当前文件夹里的内容
+ls  (list)
+
+
+
+
+
+未列出
+用户：root
+密码：Taren1 (yi)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+前端、移动端：
+呈现数据给用户
+帮助用户发送请求
+接收后端发来的响应（反馈）
+
+微信
+
+
+
+
+
+
+rm  -f  a.txt
+
+
+
+mkdir  -p  a/b/c
+
+rm  -rf  a
+
+
+date
+
+cal 2018
+
+C语言
+
+
+
+Shell编程
+./a.sh
+
+pwd
+ls
+cal
+
+
+test.sh
+
+cal
+pwd
+ls
+date
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

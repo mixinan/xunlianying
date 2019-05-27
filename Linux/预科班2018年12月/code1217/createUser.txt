@@ -1,0 +1,18 @@
+#!/bin/bash
+read -p "请输入用户名:" user
+
+# if [ -z $user ];then
+#	exit
+# fi
+
+[ -z $user ] && exit
+
+read -p "请输入密码：" pswd
+
+
+pswd=${pswd:-123456}
+
+echo $pswd
+
+useradd $user
+echo "$pswd" | passwd --stdin $user

@@ -1,0 +1,19 @@
+#!/bin/bash
+file="names.txt"
+arr=()
+
+index=0
+
+for name in `cat $file`
+do
+	arr[index]=$name
+	let index+=1
+done
+
+# ============================
+
+length=`cat $file | wc -l`
+
+rand=$[RANDOM%length]
+
+echo ${arr[$rand]}
