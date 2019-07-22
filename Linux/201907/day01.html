@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day01.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h2 id="%E8%AE%B2%E5%B8%88%E4%BB%8B%E7%BB%8D">讲师介绍</h2>
+<ul>
+<li>郭兴楠</li>
+<li>微博：<a href="https://weibo.com/hejinfriend">万码千钧</a></li>
+<li>QQ：2070906030</li>
+</ul>
+<h2 id="%E5%AE%9E%E8%AE%AD%E5%86%85%E5%AE%B9">实训内容</h2>
+<pre class="hljs"><code><div>Linux基础	4天   
+web基础		3天
+Shell编程	6天
+数据库基础	5天
+整体串讲		1天
+项目汇报		2天
+</div></code></pre>
+<h1 id="linux%E5%9F%BA%E7%A1%80---day01">Linux基础 - Day01</h1>
+<h2 id="%E4%B8%A4%E7%A7%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">两种操作系统</h2>
+<pre class="hljs"><code><div>Linux
+  开源（免费）
+  键盘输入
+  字符界面
+  技术人员（企业）
+
+Windows
+  闭源（收费）
+  鼠标点击
+  图形界面
+  技术小白（家庭）
+</div></code></pre>
+<h2 id="%E5%91%BD%E4%BB%A4">命令</h2>
+<pre class="hljs"><code><div>生活中：起立、请进、趁热吃  
+计算机：date、cal、poweroff
+</div></code></pre>
+<p>日期时间</p>
+<pre class="hljs"><code><div>date
+显示当前的日期和时间
+
+-s 选项，设置时间 (set)
+
+date  -s  时间字符串
+date  -s  &quot;2019-7-2  16:47&quot;
+
+时间字符串，需符合规范：
+月份的范围 1~12
+时分秒也要符合常识
+否则，会显示无效的日期
+</div></code></pre>
+<p>日历</p>
+<pre class="hljs"><code><div>cal
+(calendar)
+不加参数，默认显示当前月份的日历
+
+cal  2019
+显示 2019 年的日历
+参数只有 1 个，表示年份
+
+cal  8  2008
+显示 2008 年 8 月份的日历
+参数有 2 个，分别表示月份、年份
+</div></code></pre>
+<p>路径</p>
+<pre class="hljs"><code><div>描述一个文件或文件夹所在的位置
+
+/
+根目录
+可以看作 Linux 系统里最大的文件夹
+
+/etc/
+根目录下的 etc 文件夹
+
+/var/ftp/a.txt  
+根目录下的 ftp 文件夹下的 a.txt 文件
+开头第一个“/”，表示根目录
+之后的所有“/”，表示父目录和子目录之间的分隔符
+
+~
+当前用户的家目录
+每个能正常登录到系统的用户，都有自己的家目录
+
+.
+当前目录
+
+..
+上层目录
+</div></code></pre>
+<p>绝对路径</p>
+<pre class="hljs"><code><div>写法上，以根目录“/”开头的路径
+也可以说是描述一个文件的完整路径
+
+/home
+/etc/hostname
+</div></code></pre>
+<p>相对路径</p>
+<pre class="hljs"><code><div>以当前所在的位置作为参照，来描述一个路径
+写法上，不以“/”开头
+
+如果正处于 /root 目录，执行以下两条命令，效果一样
+mkdir  hello		相对路径写法
+mkdir  /root/hello	绝对路径写法
+</div></code></pre>
+<p>切换文件夹</p>
+<pre class="hljs"><code><div>cd  路径
+(change 改变 directory)
+
+cd
+如果不加任何参数，默认回到“家目录”
+
+cd  /var/ftp
+切换到 /var/ftp 文件夹
+
+cd  .. 
+跳到上一层目录
+
+cd  ../..
+跳到上一层的上一层
+
+cd   -
+返回：从哪儿来，回哪儿去
+</div></code></pre>
+<p>打印当前路径</p>
+<pre class="hljs"><code><div>pwd
+（print working directory）
+打印正在工作的路径（我在哪儿）
+</div></code></pre>
+<p>命令的格式</p>
+<pre class="hljs"><code><div>命令
+命令  参数
+命令  选项
+命令  选项   参数
+</div></code></pre>
+<p>列出目录下的内容</p>
+<pre class="hljs"><code><div>ls
+(list 列出、列表)
+列出当前文件夹下的内容
+不加任何选项和参数，默认为当前目录
+
+ls    -a   
+(all 所有)
+列出当前目录下的所有内容，包含隐藏文件
+
+ls    -l   
+(long 长的)
+列出当前目录下内容的详细信息：名称、大小、修改时间、权限等
+
+ls   -al
+列出所有内容的详细信息
+选项可以组合使用，a 和 l 顺序可以颠倒
+
+ls   -lh
+(human-readable 人类可读的，文件大小用K、M、G表示)
+h 选项不能单独使用，要跟 l 配合才行
+
+ls    /var
+列出指定目录 /var 下的内容
+
+ls    /home    /var
+同时列出两个路径里的内容
+
+ls    -a     /
+列出根目录下的所有内容
+</div></code></pre>
+<p>手册、说明书</p>
+<pre class="hljs"><code><div>man  命令名称
+(manual)
+
+man  ls
+查看 ls 命令的手册
+</div></code></pre>
+<h1 id="%E6%96%87%E4%BB%B6">文件</h1>
+<p>创建</p>
+<pre class="hljs"><code><div>touch  a.txt
+touch  ./a.txt
+在当前目录里，创建 a.txt
+
+touch  b.txt  c.txt
+在当前目录里，同时创建两个文件
+
+用 ls 查看是否创建成功
+</div></code></pre>
+<p>删除</p>
+<pre class="hljs"><code><div>rm   文件名
+(remove  移除、移走)
+
+rm  a.txt
+rm  b.txt  c.txt
+
+rm   -f   a.txt
+(force 强制)
+强制执行，不再询问要不要删除
+</div></code></pre>
+<h1 id="%E6%96%87%E4%BB%B6%E5%A4%B9">文件夹</h1>
+<p>创建</p>
+<pre class="hljs"><code><div>mkdir  文件夹名称
+(make 创建 directory 文件夹)
+
+mkdir  music
+创建 music 文件夹
+
+mkdir  movie  picture
+同时创建 movie、picture 两个文件夹
+
+用 ls 查看是否创建成功
+
+-p 选项，可以创建多层嵌套的文件夹
+
+mkdir  -p   Jay/music/qlx
+(parent 父母、父目录、缺啥补啥) 
+</div></code></pre>
+<p>删除</p>
+<pre class="hljs"><code><div>rm  -r  music
+删除文件夹 music
+(recursive 递归)
+
+rm  -r  music  picture  movie
+同时删除三个目录
+
+rm  -rf  /home/kobe
+强制删除文件夹(不需要确认)
+</div></code></pre>
+<p>删除注意事项</p>
+<pre class="hljs"><code><div>rm  -rf  /mnt/*
+删除 /mnt 目录下的内容，目录本身不变
+
+rm  -rf  /mnt
+删除 /mnt 目录，目录本身也会被删除
+</div></code></pre>
+<h1 id="%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F">快捷方式</h1>
+<p>字体调整</p>
+<pre class="hljs"><code><div>调大   ctrl shift +
+调小   ctrl -
+</div></code></pre>
+<p>上下方向键</p>
+<pre class="hljs"><code><div>从执行过的命令记录里，上下翻找命令
+</div></code></pre>
+<p>tab 键</p>
+<pre class="hljs"><code><div>自动补全命令、文件名	
+如果对应内容只有一个，可以直接补全
+如果有多个，需要再按一次 tab，列出所有相关内容
+</div></code></pre>
+<p>alt + .</p>
+<pre class="hljs"><code><div>调用“上一条命令”的最后一个参数
+</div></code></pre>
+<p>一次执行多条命令</p>
+<pre class="hljs"><code><div>用分号隔开
+date ; cal
+</div></code></pre>
+<p>清空屏幕内容</p>
+<pre class="hljs"><code><div>clear
+快捷键：ctrl + L
+</div></code></pre>
+<p>再打开一个终端</p>
+<pre class="hljs"><code><div>ctrl + shift + t
+如果已经打开了一个终端，可以用此组合键快速再开一个
+</div></code></pre>
+<p>sleep  数字</p>
+<pre class="hljs"><code><div>让程序休眠对应的时长，默认以“秒”为单位
+取值可以是小数
+
+sleep 1[s]	睡眠 1 秒钟
+sleep 1m	睡眠 1 分钟
+sleep 1h	睡眠 1 小时
+</div></code></pre>
+<p>关闭终端</p>
+<pre class="hljs"><code><div>鼠标点击右上角的 x 号
+exit 命令
+ctrl + d
+</div></code></pre>
+<h1 id="%E4%BA%92%E8%81%94%E7%BD%91%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B">互联网项目的开发流程</h1>
+<pre class="hljs"><code><div>产品部门（需求、交互、体验）
+设计部门（图、文档）
+开发部门
+    前端（网站）
+    后端
+    移动端（安卓、iOS）
+测试部门
+云计算部门（系统运维、监控、数据库、大型架构）
+市场部门
+运营部门
+</div></code></pre>
+
+</body>
+</html>

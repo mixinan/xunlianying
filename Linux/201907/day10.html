@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day10.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="shell%E5%9F%BA%E7%A1%80---day03">Shell基础 - Day03</h1>
+<h2 id="%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5">循环语句</h2>
+<p>for 循环</p>
+<pre class="hljs"><code><div>for  变量名  in   列表
+do
+    要循环执行的语句
+done
+
+每次从列表里取出一项，赋值给变量
+该变量可以直接在循环语句里使用
+</div></code></pre>
+<p>列表</p>
+<pre class="hljs"><code><div>第一种：
+for   a   in  5 6 8 10 55
+do
+    echo $a
+done
+
+
+第二种：
+
+for   a   in  `seq  9`
+do
+    echo $a
+done
+
+
+第三种：
+
+for   a   in  {1..9}
+do
+    echo $a
+done
+
+
+第四种（Linux命令）：
+
+for  a  in  `ls  *.txt`
+do
+    echo $a
+done
+</div></code></pre>
+<p>数学运算</p>
+<pre class="hljs"><code><div>$[数学表达式]
+
+i=10
+i=$[i+1]
+
++  -  *  /   %
+
+let  a++
+a++ 等效于  a=$[a+1]
+a-- 等效于  a=$[a-1]
+
+a+=1  等效于  a=$[a+1]
+a*=8  等效于  a=$[a*8]
+</div></code></pre>
+<p>while 循环</p>
+<pre class="hljs"><code><div>while  [ 条件 ]
+do
+    循环语句
+done
+
+
+死循环：
+while  true
+do
+    循环语句
+done
+
+
+while [ 2 -eq 2 ]
+do
+    循环语句
+done
+</div></code></pre>
+<p>终止循环</p>
+<pre class="hljs"><code><div>break
+
+停止当前所在的循环
+程序继续往下执行
+</div></code></pre>
+<p>在 vim 里批量缩进</p>
+<pre class="hljs"><code><div>ctrl + v    进入视图模式
+shift + i   进入编辑状态
+用“空格”控制第一行的缩进（之后其它几行会自动跟它对齐）
+按 Esc 键退出编辑状态
+</div></code></pre>
+<p>查看文件夹本身的信息</p>
+<pre class="hljs"><code><div>ls   /home
+列出 home 目录下的内容
+
+ls  -l  /home
+列出 home 目录下内容的详细信息
+
+ls  -d   /home
+列出 home 目录本身
+
+ls  -ld   /home
+列出 home 目录本身的详细信息
+
+
+思考：
+如何列出当前目录下的所有文件夹（不包含文件）
+ls   -d   */
+</div></code></pre>
+<p>自己定义脚本，给系统增加功能</p>
+<pre class="hljs"><code><div>创建脚本 lsdir.sh
+
+for  name  in  `ls`
+do
+    if [ -d $name ];then
+        echo  -n  &quot;$name  &quot;
+    fi
+done
+
+chmod  u+x  lsdir.sh
+/root/lsdir.sh
+</div></code></pre>
+<p>如果想让脚本以“命令”形式执行</p>
+<pre class="hljs"><code><div>第一种：
+chmod  u+x  lsdir.sh
+在家目录 .bashrc 里写入
+alias  lsdir='/root/lsdir.sh'
+
+source  .bashrc
+执行：lsdir
+
+
+第二种：
+chmod  u+x  lsdir.sh
+cp  /root/lsdir.sh   /usr/bin/lsdir
+执行：lsdir
+</div></code></pre>
+<h1 id="%E7%BB%83%E4%B9%A0">练习</h1>
+<p>九九乘法表</p>
+<pre class="hljs"><code><div>for  n   in  `seq 9`
+do
+   for i in `seq $n`
+   do
+        echo -en &quot;${i}x${n}=$[i*n]\t&quot;
+   done
+   echo
+done
+</div></code></pre>
+<p>求一个数的绝对值</p>
+<pre class="hljs"><code><div>让用户输入一个整数
+计算机显示它的绝对值
+
+read  -p  &quot;请输入一个整数:&quot;  n
+if [ $n -gt 0 ];then
+        echo $n
+else
+        echo $[-n]
+fi
+</div></code></pre>
+<p>列出1~100之间的所有奇数</p>
+<pre class="hljs"><code><div>for n in `seq 100`
+do
+    if [ $[n%2] -ne 0 ];then
+        echo -n &quot;$n &quot;
+    fi
+done
+echo
+</div></code></pre>
+<p>求 1~100 之间所有整数的和</p>
+<pre class="hljs"><code><div>sum=0
+for a in `seq 100`
+do
+   let sum+=a
+done
+echo &quot;最终结果是$sum&quot;
+</div></code></pre>
+<p>随机值</p>
+<pre class="hljs"><code><div>echo  $RANDOM
+范围：0~32767
+
+范围太大，限定范围：
+
+一个整数对5求余，结果范围：0~4
+一个整数对8求余，结果范围：0~7
+一个整数对n求余，结果范围：0~(n-1)
+
+        100              0~99
+
+限定在0~99之间
+$[RANDOM%100]
+</div></code></pre>
+<p>主机名</p>
+<pre class="hljs"><code><div>查看主机名
+hostname
+
+修改主机名
+vim  /etc/hostname
+
+写入：
+guoxn.2hao.cc
+
+简单的设置方法：
+hostnamectl  set-hostname  主机名
+效果等同于：
+在 /etc 下，创建文件 hostname
+写入指定的主机名
+</div></code></pre>
+
+</body>
+</html>

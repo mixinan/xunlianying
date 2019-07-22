@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day03.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h2 id="%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E7%9A%84%E5%90%AB%E4%B9%89">命令提示符的含义</h2>
+<pre class="hljs"><code><div>[student@room9pc01 ~]$
+
+student     当前用户名
+@           在...(at)
+room9pc01   当前主机名
+~           当前所在的文件夹
+$           当前是普通用户权限
+#           当前是管理员权限
+</div></code></pre>
+<p>查看 ip 地址</p>
+<pre class="hljs"><code><div>ifconfig  
+ifconfig | head -2
+</div></code></pre>
+<p>历史记录</p>
+<pre class="hljs"><code><div>history
+
+效果：
+59  pwd
+60  cd
+
+!59
+执行第59条命令
+
+在家目录里，有个隐藏文件 .bash_history
+记录执行过的命令
+</div></code></pre>
+<p>重置并启动虚拟机</p>
+<pre class="hljs"><code><div>rht-vmctl  reset  classroom
+等待至少5秒钟
+rht-vmctl  reset  server
+
+双击server
+点击not listed?
+username: root
+password: redhat
+</div></code></pre>
+<p>远程连接服务器</p>
+<pre class="hljs"><code><div>ssh   用户@ip地址
+ssh   root@172.25.0.11
+
+-X 选项，支持远程打开图形界面
+ssh  -X  root@172.25.0.11
+</div></code></pre>
+<p>看两台电脑能否通信</p>
+<pre class="hljs"><code><div>ping  ip地址
+ping  172.25.0.11
+
+Linux系统默认一直发送数据
+使用 ctrl + c 人为结束发送
+
+ping  -c  6  -i  0.3  ip地址
+(count 数量)
+(interval 间隔时间，单位是秒，不能小于0.2)
+</div></code></pre>
+<h1 id="%E7%94%A8%E6%88%B7">用户</h1>
+<p>两种身份</p>
+<pre class="hljs"><code><div>管理员   root
+普通用户 student
+</div></code></pre>
+<p>创建用户</p>
+<pre class="hljs"><code><div>useradd  用户名
+useradd  guoxn
+
+指定用户的 id 号：
+user  -u  9527  huaan
+创建一个用户叫 huaan，id 是 9527
+
+在&quot;户口本&quot;里查看用户信息
+cat  /etc/passwd
+</div></code></pre>
+<p>删除用户</p>
+<pre class="hljs"><code><div>userdel  用户名
+（delete 删除）
+不加任何选项，只删除 passwd 文件里的信息，家目录还在
+删除家目录： rm  -rf  /home/用户名 
+
+userdel   -r  用户名
+把用户相关的内容，全部删除（包括家目录）
+</div></code></pre>
+<p>给用户设置密码</p>
+<pre class="hljs"><code><div>root 给&quot;普通用户&quot;指定密码
+passwd guoxn
+输入两次新密码
+不需要知道旧密码
+
+普通用户给自己设置密码
+passwd
+先输入旧密码：
+输入新密码2次（需要很复杂）：
+</div></code></pre>
+<p>练习</p>
+<pre class="hljs"><code><div>创建用户 kobe  michael  wade
+分别给他们设置密码如下：
+kobe     brant
+michael  jordan
+wade     jordan
+
+另一种设置密码的办法：
+echo  密码 | passwd  --stdin  用户名  
+（standard 标准的 input 输入）
+</div></code></pre>
+<p>切换用户</p>
+<pre class="hljs"><code><div>su
+(switch 切换 user)
+
+root ===&gt;  普通用户
+su - 用户名
+不需要密码，直接就能切换
+
+普通用户 ===&gt;  root
+su
+需要输入 root 密码
+</div></code></pre>
+<p>交互式与非交互式</p>
+<pre class="hljs"><code><div>交互式
+用户输入一条命令，执行一条
+或者系统需要提示用户输入
+
+非交互式
+用户把所有要执行的命令，写入脚本文件
+直接执行该脚本文件
+
+1、显示时间
+2、创建用户abc
+3、给用户设置密码123456
+4、显示户口本的最后一行
+
+vim  user.sh
+
+写入：
+date
+useradd abc
+echo 123456 | passwd --stdin abc
+tail -1 /etc/passwd
+
+执行脚本：
+bash  user.sh
+</div></code></pre>
+<h2 id="%E6%9D%83%E9%99%90">权限</h2>
+<pre class="hljs"><code><div>查看文件的权限
+ls  -l   文件名
+
+drw-r--r--
+
+第一位：表示文件类型
+d   表示文件夹
+-   表示文件
+l   表示链接
+
+后九位：表示权限
+rw-　　　r--　　　r--
+用户　　　组　　　其它
+user     group    other
+u        g        o
+
+权限分类：rwx
+r  读  (read)
+w  写  (write)
+x  执行 (execute)
+</div></code></pre>
+<p>设置权限</p>
+<pre class="hljs"><code><div>+   u+x  g+w
+-   o-r
+=   u=rwx  o=---
+
+完整格式
+chmod  u+x,g+w  user.sh
+chmod  +x   user.sh
+
+验证是否修改成功
+ls  -l  user.sh
+</div></code></pre>
+<p>练习</p>
+<pre class="hljs"><code><div>创建文件 0702.txt
+修改权限为  rwx------
+查看 0702.txt 的权限
+</div></code></pre>
+<p>用数字形式设置权限</p>
+<pre class="hljs"><code><div>rwx-
+4210
+
+chmod  644  user.sh 
+rw-r--r--
+
+777
+rwxrwxrwx
+</div></code></pre>
+<p>查找文件里的关键字内容</p>
+<pre class="hljs"><code><div>grep   关键字    文件路径
+它会把包含关键的一整行内容，都显示出来
+它的查找结果，以行为单位
+
+查看有没有 abc 用户
+grep   abc   /etc/passwd
+</div></code></pre>
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day17.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="database%E5%9F%BA%E7%A1%80---day04">Database基础 - Day04</h1>
+<h2 id="%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AF%BC%E5%85%A5%E3%80%81%E5%AF%BC%E5%87%BA">数据的导入、导出</h2>
+<ul>
+<li>可以把数据库里的记录，导出到文件</li>
+<li>也可以把文件里的内容，导入数据库</li>
+</ul>
+<h2 id="%E6%A1%88%E4%BE%8B">案例</h2>
+<pre class="hljs"><code><div>将 /etc/passwd 的内容导入 db1.user 表
+将 db1.user 表的数据导出到 /mydata/user.txt 文件
+</div></code></pre>
+<p>查看数据库默认的检索目录</p>
+<pre class="hljs"><code><div>mysql&gt; show variables like &quot;secure_file_priv&quot;;
++------------------+-----------------------+
+| Variable_name    | Value                 |
++------------------+-----------------------+
+| secure_file_priv | /var/lib/mysql-files/ |
++------------------+-----------------------+
+</div></code></pre>
+<p>修改数据库的检索目录</p>
+<pre class="hljs"><code><div>创建新的检索目录
+mkdir  /mydata
+
+设置目录的归属关系
+chown  mysql  /mydata
+
+chown  修改文件的归属关系
+(own 拥有、归属)
+chown   用户名    文件
+
+
+在 MySQL 的配置文件 /etc/my.cnf 写入：
+[mysqld]
+    secure_file_priv=&quot;/mydata&quot;
+
+重启服务
+systemctl  restart  mysqld
+
+登录数据库后，查看检索目录
+mysql&gt; show  variables  like &quot;secure_file_priv&quot;;
++-------------------+-----------+
+| Variable_name     | Value     |
++-------------------+-----------+
+| secure_file_priv  | /mydata/  |
++-------------------+-----------+
+
+如果在配置文件里设置
+secure_file_priv=&quot;/&quot;
+可将数据导出到mysql用户有写权限的任何目录
+</div></code></pre>
+<p>新建 db1 库、user 表</p>
+<pre class="hljs"><code><div>mysql -u root –p123456
+
+create database db1;
+
+create table db1.user(
+        name char(50),
+        password  char(1),
+        uid int,
+        gid int,
+        comment  char(150),
+        homedir char(50),
+        shell   char(50)
+);
+</div></code></pre>
+<p>拷贝文件到检索目录下</p>
+<pre class="hljs"><code><div>cp  /etc/passwd   /mydata/
+</div></code></pre>
+<p>导入数据</p>
+<pre class="hljs"><code><div>mysql&gt; load data infile &quot;/mydata/passwd&quot; 
+    into table user
+    fields terminated by &quot;:&quot;
+    lines terminated by &quot;\n&quot; ;
+
+mysql&gt; select  * from  user;
+
+mysql&gt; alter table  user
+    add id int primary key auto_increment first;
+
+mysql&gt; select  * from  user;
+
+如果数据字段比较多，可以使用 \G 结尾，以“列表形式”显示查询结果
+select * from user\G
+
+如果输入中途发现语法有错误，可以通过  \c 结束本次输入
+alter  tabbee  user
+    add  \c
+</div></code></pre>
+<p>将 db1.user 表所有记录导出到/mydata/user.txt 文件</p>
+<pre class="hljs"><code><div>查询要导出的数据
+mysql&gt; select  * from  user;
+
+导出数据
+mysql&gt; select  * from  user  
+    into  outfile &quot;/mydata/user.txt&quot;;
+
+默认是以制表符作为字段之间的分隔
+
+以指定分隔符导出数据
+mysql&gt; select  * from  user  
+    into  outfile &quot;/mydata/user1.txt&quot; 
+    fields terminated by &quot;,&quot; 
+    lines terminated by &quot;\n&quot;;
+
+查看文件内容
+cat  /mydata/user.txt
+cat  /mydata/user1.txt
+</div></code></pre>
+<p>乱码问题</p>
+<pre class="hljs"><code><div>查看字符相关变量的值
+show  variables  like  &quot;%char%&quot;;
+
+系统变量
+character_set_server：默认的内部操作字符集
+character_set_client：客户端来源数据使用的字符集
+character_set_connection：连接层字符集
+character_set_results：查询结果字符集
+character_set_database：当前选中数据库的默认字符集
+character_set_system：系统元数据(字段名等)字符集
+
+临时设置对应变量的值
+set  character_set_server=utf8;
+
+永久生效：修改配置文件并重启服务
+[client]
+    default-character-set=utf8
+
+[mysqld]
+    character-set-server=utf8
+</div></code></pre>
+<h2 id="%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD">数据备份</h2>
+<pre class="hljs"><code><div>直接在终端里执行（不登录MySQL）
+
+-A   备份所有的库和表
+mysqldump   -uroot  -p123456   -A  &gt;  /root/all.sql
+
+备份指定的一个数据库 db1
+mysqldump  -uroot  -p123456   db1  &gt;   /root/db1.sql
+不会备份建库的语句，恢复数据时，需要提前建好数据库 db1
+
+备份 db1 库里的 user 表
+mysqldump  -uroot  -p123456    db1  user  &gt;   /root/db1_user.sql
+不会备份建库的语句，恢复数据时，需要提前建好数据库 db1
+
+-B 列出要备份的多个库名
+mysqldump  -uroot  -p123456   -B  db1  db2  &gt;   /root/db1-db2.sql
+备份时，会带有建库的语句，恢复数据时，不需要提前建库
+</div></code></pre>
+
+</body>
+</html>

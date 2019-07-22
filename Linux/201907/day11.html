@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day11.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="shell%E5%9F%BA%E7%A1%80---day04">Shell基础 - Day04</h1>
+<p>逻辑运算</p>
+<pre class="hljs"><code><div>并且    &amp;&amp;
+或者    ||
+非      !
+
+[ 条件1 ] &amp;&amp; [ 条件2 ] 
+两个条件都成立，结果才成立
+
+[ 条件1 ] || [ 条件2 ] 
+只要有一个条件成立，结果就成立
+
+[ -f  $name ]
+如果是文件，成立
+[  ! -f  $name ]
+如果不是文件，则成立
+
+
+在1~10之间的数，如果“大于5”并且“是偶数”，就显示出来
+
+for  a  in  `seq  10`
+do
+    if [ $a -gt 5 ] &amp;&amp; [ $[a%2] -eq 0 ];then
+        echo  $a
+    fi
+done
+</div></code></pre>
+<p>闰年</p>
+<pre class="hljs"><code><div>能被4整除并且不能被100整除
+或者
+能被400整除
+
+read  -p  &quot;请输入年份：&quot;  year
+if [ $[year%4] -eq 0 ]&amp;&amp;[ $[year%100] -ne 0  ] || [ $[year%400]  -eq  0  ];then
+    echo &quot;$year是闰年&quot;
+else
+    echo &quot;$year不是闰年&quot;
+fi
+</div></code></pre>
+<p>开机执行某条命令</p>
+<pre class="hljs"><code><div>/etc/profile
+
+在最后增加一行，写入要执行的命令
+每次开机，都会执行
+</div></code></pre>
+<h2 id="%E5%87%BD%E6%95%B0">函数</h2>
+<blockquote>
+<p>需要反复执行的代码段，可以单独给它们起个名字。以后需要执行这段代码时，直接执行该名字即可</p>
+</blockquote>
+<p>函数定义和调用</p>
+<pre class="hljs"><code><div>函数名(){
+    执行的代码段
+}
+
+show(){
+    date
+    cal
+    pwd
+    ls
+}
+
+调用函数
+show
+</div></code></pre>
+<p>获取函数的返回值</p>
+<pre class="hljs"><code><div>sum(){
+  sum=0
+  for  a  in `seq 100`
+  do  
+    let sum+=a
+  done
+  echo $sum
+}
+
+result=`sum`
+echo $result
+</div></code></pre>
+<p>往函数里传入参数</p>
+<pre class="hljs"><code><div>调用函数时，可以在函数名后面传入参数
+在函数里，通过位置变量($1、$2)来接收参数
+
+sum(){
+  sum=0
+  for  a  in `seq $1`
+  do
+    let sum+=a
+  done
+  echo $sum
+}
+
+read -p &quot;请输入一个数字:&quot; n
+result=`sum $n`
+echo $result
+</div></code></pre>
+<p>练习</p>
+<pre class="hljs"><code><div>创建脚本  useradd.sh
+下载 http://176.4.15.36/user.txt 文件
+批量创建文件里的用户，并给它们设置初始密码 123456
+wget  http://176.4.15.36/user.txt
+scp  user.txt   root@172.25.0.11:/root
+
+代码：
+for name in `cat user.txt`
+do
+   useradd  $name
+   echo 123456 | passwd  --stdin  $name  
+done
+</div></code></pre>
+<p>生成随机密码</p>
+<pre class="hljs"><code><div>从&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!_[]{}().,&quot; 里随机取6位作为密码
+
+字符串的截取
+${all : 从哪儿开始取 : 取几位}
+
+获取一个变量值的长度
+${#变量名}
+${#all}
+
+随机值=$[RANDOM % 字符串的总长度]
+${all : 随机值 : 1}
+</div></code></pre>
+<p>代码</p>
+<pre class="hljs"><code><div># 创建密码的函数
+createPass(){
+  mima=&quot;&quot;
+  all=&quot;abcdefghijklm!_[]{}()&quot;
+  chang=${#all}
+  
+  for  a  in  `seq $1`
+  do  
+    suiji=$[RANDOM%chang]
+    zimu=${all:suiji:1}
+    mima=$mima$zimu
+  done
+
+  echo $mima
+}
+
+read -p &quot;请输入密码的位数:&quot; weishu
+
+for  a   in  `cat  user.txt`
+do
+    useradd $a
+    pw=`createPass $weishu`
+    echo $pw | passwd  --stdin  $a  
+    echo &quot;$a===$pw&quot; &gt;&gt; userpasswd.txt
+done
+</div></code></pre>
+<h1 id="%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</h1>
+<pre class="hljs"><code><div>grep  选项  '正则表达式'   文件路径
+
+grep  -n   显示行号
+grep  -v   取反
+grep  -i   忽略大小写(ignore-case)
+grep  -c   匹配的数量(count)
+grep  -q   静默匹配（quiet, 只想知道有没有匹配到。至于匹配了什么内容，不管）$? 保存结果（0 匹配到，1 未匹配到）
+grep  -E   支持扩展功能
+</div></code></pre>
+<p>基本正则</p>
+<pre class="hljs"><code><div>^   以...开头
+$   以...结尾
+[ ]  匹配范围内的一个字符
+[^ ]  对范围取反
+.     任意一个字符
+
+[a-z]       一个小写字母
+[A-Z]       一个大写字母
+[a-zA-Z]    一个字母
+[0-9]       一个数字
+[^a-z]      不是小写字母
+
+grep  '\.$'  anli.txt
+筛选出以.结尾的内容
+
+【符合条件的数量】
+
+*       匹配任意个字符
+\{n\}   符合条件的有n个
+\{n,m\} 符合条件的有n~m个
+\{n,\}  符合条件的至少有n个
+
+grep  '[0-9]\{4\}'  anli.txt
+筛选出有4个相连数字的内容
+
+grep  '^a'   anli.txt
+筛选出以a开头的内容
+
+grep  'a$'   anli.txt
+筛选以a结尾的内容
+
+grep  '[a-z]'  anli.txt
+筛选包含小写字母的内容
+
+grep  '[A-Z]'  anli.txt
+筛选包含大写字母的内容
+
+grep  '^[A-Z]'  anli.txt
+筛选以大写字母开头的内容
+
+筛选出有内容的行（不是空行）
+grep  '.'   anli.txt
+grep   -v   '^$'   anli.txt
+</div></code></pre>
+<p>扩展正则</p>
+<pre class="hljs"><code><div>{n,m}   n~m个
++       至少1个
+?       0或1个
+|       或者
+( )     组合为整体
+\b      单词边界
+
+grep  -E  '[0-9]{4}'  anli.txt
+egrep  '[0-9]{4}'  anli.txt
+egrep   'taste|test'  anli.txt
+</div></code></pre>
+<p>练习：</p>
+<pre class="hljs"><code><div>手机号
+egrep  '\b[0-9]{11}\b'  anli.txt
+
+邮箱
+egrep  '[0-9a-zA-Z]+@[a-zA-Z0-9]{2,}\.[a-zA-Z]+'  anli.txt
+</div></code></pre>
+
+</body>
+</html>

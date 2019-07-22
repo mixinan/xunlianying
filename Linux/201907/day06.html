@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day06.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="web%E5%9F%BA%E7%A1%80---day02">web基础 - Day02</h1>
+<h2 id="css">CSS</h2>
+<p>Cascading  Style  Sheets  层叠样式表</p>
+<p>常用的样式</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">color</span>: <span class="hljs-selector-tag">red</span>;
+<span class="hljs-selector-tag">background</span>: <span class="hljs-selector-tag">yellow</span>;
+<span class="hljs-selector-tag">border</span>: 1<span class="hljs-selector-tag">px</span>  <span class="hljs-selector-tag">solid</span>  <span class="hljs-selector-tag">red</span>;
+<span class="hljs-selector-tag">text-shadow</span>: 2<span class="hljs-selector-tag">px</span>  2<span class="hljs-selector-tag">px</span>  3<span class="hljs-selector-tag">px</span>  <span class="hljs-selector-tag">black</span>;
+<span class="hljs-selector-tag">text-align</span>: <span class="hljs-selector-tag">center</span>;
+<span class="hljs-selector-tag">font-size</span>: 12<span class="hljs-selector-tag">px</span>;
+<span class="hljs-selector-tag">font-family</span>: <span class="hljs-selector-tag">sans-serif</span>;
+<span class="hljs-selector-tag">cursor</span>: <span class="hljs-selector-tag">pointer</span>;
+<span class="hljs-selector-tag">text-decoration</span>: <span class="hljs-selector-tag">none</span>;
+<span class="hljs-selector-tag">font-weight</span>: <span class="hljs-selector-tag">normal</span>;
+<span class="hljs-selector-tag">list-style</span>: <span class="hljs-selector-tag">none</span>;
+</div></code></pre>
+<h2 id="%E5%86%85%E8%81%94%E6%A0%B7%E5%BC%8F">内联样式</h2>
+<p>在开始标记里，设置 style 属性</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:red;"</span>&gt;</span>一级标题<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>不可复用、不好维护，用得不多</p>
+</blockquote>
+<h2 id="%E5%86%85%E9%83%A8%E6%A0%B7%E5%BC%8F">内部样式</h2>
+<p>在head标记里，加入style标记。把样式写在style标记内</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-selector-tag">p</span>{
+            <span class="hljs-attribute">color</span>: red;
+            <span class="hljs-attribute">background</span>: black;
+            <span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid red;
+        }
+
+        <span class="hljs-selector-tag">h1</span>{
+            <span class="hljs-attribute">color</span>: blue;
+            <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span>  red;
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+</div></code></pre>
+<h2 id="%E5%A4%96%E9%83%A8%E6%A0%B7%E5%BC%8F">外部样式</h2>
+<p>新建后缀为 .css 的文件，写入各种样式。然后在html文件的head标记里，用 <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件路径&quot;&gt;</code> 进行关联。</p>
+<h2 id="%E6%A0%B7%E5%BC%8F%E5%B1%82%E5%8F%A0">样式层叠</h2>
+<p>可以多次给一个标记设置不同样式，它们的效果，会集中体现在标记上</p>
+<p>如果同一个样式（比如 color），反复设置了，则遵循“就近原则”</p>
+<h2 id="%E5%B0%BA%E5%AF%B8%E7%9A%84%E5%BA%94%E7%94%A8">尺寸的应用</h2>
+<p>单位：cm、mm、px、百分数（50%）</p>
+<pre class="hljs"><code><div>宽度100毫米
+<span class="hljs-selector-tag">width</span>: 100<span class="hljs-selector-tag">mm</span>;
+
+高度200像素
+<span class="hljs-selector-tag">height</span>: 200<span class="hljs-selector-tag">px</span>;
+
+边框圆角半径
+<span class="hljs-selector-tag">border-radius</span>: 50%;
+</div></code></pre>
+<p>边框</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">border</span>: 边框粗细  边框样式   边框颜色;
+          1<span class="hljs-selector-tag">px</span>     <span class="hljs-selector-tag">solid</span>     <span class="hljs-selector-tag">red</span>
+</div></code></pre>
+<p>内边距</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">padding</span>:  8<span class="hljs-selector-tag">px</span>;
+1个值：上下左右均是8<span class="hljs-selector-tag">px</span>
+
+<span class="hljs-selector-tag">padding</span>: 10<span class="hljs-selector-tag">px</span> 20<span class="hljs-selector-tag">px</span>;
+2个值：上下10<span class="hljs-selector-tag">px</span>，左右20<span class="hljs-selector-tag">px</span>
+
+3个值：上  左右  下
+4个值：上   右   下   左
+
+也可以单独设置
+<span class="hljs-selector-tag">padding-top</span>: 10<span class="hljs-selector-tag">px</span>;
+<span class="hljs-selector-tag">padding-bottom</span>: 10<span class="hljs-selector-tag">px</span>;
+<span class="hljs-selector-tag">padding-left</span>: 10<span class="hljs-selector-tag">px</span>;
+<span class="hljs-selector-tag">padding-right</span>: 10<span class="hljs-selector-tag">px</span>;
+
+记住4个方位词：
+上 <span class="hljs-selector-tag">top</span>
+下 <span class="hljs-selector-tag">bottom</span>
+左 <span class="hljs-selector-tag">left</span>
+右 <span class="hljs-selector-tag">right</span>
+</div></code></pre>
+<p>外边距</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">margin</span>: 8<span class="hljs-selector-tag">px</span>;
+其它，和内边距一样设置
+</div></code></pre>
+<h2 id="%E9%98%B4%E5%BD%B1">阴影</h2>
+<p>文字阴影</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">text-shadow</span>: <span class="hljs-selector-tag">x</span>偏移  <span class="hljs-selector-tag">y</span>偏移  阴影长度  颜色
+             3<span class="hljs-selector-tag">px</span>    5<span class="hljs-selector-tag">px</span>    2<span class="hljs-selector-tag">px</span>     <span class="hljs-selector-tag">red</span>
+
+<span class="hljs-selector-tag">x</span>为正：向右偏
+<span class="hljs-selector-tag">y</span>为正：向下偏
+
+值为负，朝相反方向偏移
+</div></code></pre>
+<p>边框阴影</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">box-shadow</span>: <span class="hljs-selector-tag">x</span>偏移  <span class="hljs-selector-tag">y</span>偏移  阴影长度  颜色
+            3<span class="hljs-selector-tag">px</span>    5<span class="hljs-selector-tag">px</span>     2<span class="hljs-selector-tag">px</span>    <span class="hljs-selector-tag">red</span>
+</div></code></pre>
+<p>边框圆角</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">border-radius</span>: 10<span class="hljs-selector-tag">px</span>;
+
+值设为50%，是规则的圆形（椭圆或正圆）
+</div></code></pre>
+<p>光标样式</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">cursor</span>: <span class="hljs-selector-tag">pointer</span>;
+取值：<span class="hljs-selector-tag">wait</span>、<span class="hljs-selector-tag">help</span>、<span class="hljs-selector-tag">text</span>、<span class="hljs-selector-tag">move</span>
+</div></code></pre>
+<p>字体相关</p>
+<pre class="hljs"><code><div>字体大小
+<span class="hljs-selector-tag">font-size</span>: 12<span class="hljs-selector-tag">px</span>;
+字体样式
+<span class="hljs-selector-tag">font-family</span>: 黑体;
+字体粗细
+<span class="hljs-selector-tag">font-weight</span>: <span class="hljs-selector-tag">bold</span>;
+文本装饰
+<span class="hljs-selector-tag">text-decoration</span>: <span class="hljs-selector-tag">none</span>;
+取值：
+<span class="hljs-selector-tag">underline</span> <span class="hljs-selector-tag">line-through</span> <span class="hljs-selector-tag">overline</span>
+  下划线   从中间穿越    上划线
+
+去除超链接的默认下划线
+<span class="hljs-selector-tag">text-decoration</span>: <span class="hljs-selector-tag">none</span>;
+</div></code></pre>
+<p>文字对齐</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">text-align</span>: <span class="hljs-selector-tag">center</span>;
+设置给块级标记
+
+取值：
+<span class="hljs-selector-tag">left</span> <span class="hljs-selector-tag">center</span> <span class="hljs-selector-tag">right</span>
+ 左    中    右
+</div></code></pre>
+<h2 id="%E9%A2%9C%E8%89%B2">颜色</h2>
+<p>英文单词</p>
+<pre class="hljs"><code><div>red  orange  yellow  green  blue  purple  white  black  gray  pink
+
+弊端：单词量有限，无法描述更多颜色
+</div></code></pre>
+<p>rgb形式</p>
+<pre class="hljs"><code><div>color: rgb(80,120,66);
+
+red
+green
+blue
+
+取值范围：0~255
+
+rgb(0,0,0)
+黑色
+
+rgb(255,255,255)
+白色
+</div></code></pre>
+<p>rgba形式</p>
+<pre class="hljs"><code><div>alpha   透明度
+取值范围： 0~1
+
+color: rgba(88,99,156,0.5);
+</div></code></pre>
+<p>十六进制的形式</p>
+<pre class="hljs"><code><div>0123456789abcdef
+
+#6位十六进制数
+#c067dd
+#ff0000
+
+前2位：红
+中间2位：绿
+后2位：蓝
+
+#3位十六进制数
+#a56
+</div></code></pre>
+<h1 id="%E9%80%89%E6%8B%A9%E5%99%A8">选择器</h1>
+<p>元素选择器</p>
+<pre class="hljs"><code><div>用元素名，作为选择器
+p{...}
+h1{...}
+</div></code></pre>
+<p>id选择器</p>
+<pre class="hljs"><code><div>&lt;p id=&quot;a1&quot;&gt;测试&lt;/p&gt;
+
+#id值
+#a1{...}
+</div></code></pre>
+<p>class选择器</p>
+<pre class="hljs"><code><div>&lt;<span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">boy</span>"&gt;测试&lt;/<span class="hljs-selector-tag">p</span>&gt;
+&lt;<span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">girl</span>"&gt;测试&lt;/<span class="hljs-selector-tag">p</span>&gt;
+&lt;<span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">girl</span>"&gt;测试&lt;/<span class="hljs-selector-tag">p</span>&gt;
+&lt;<span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">boy</span>"&gt;测试&lt;/<span class="hljs-selector-tag">p</span>&gt;
+&lt;<span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">boy</span>"&gt;标题&lt;/<span class="hljs-selector-tag">h1</span>&gt;
+
+.类名{...}
+<span class="hljs-selector-class">.boy</span>{...}
+<span class="hljs-selector-class">.girl</span>{...}
+
+提前定义好样式文件
+<span class="hljs-selector-tag">manhao</span><span class="hljs-selector-class">.css</span>
+
+<span class="hljs-selector-class">.big</span>{<span class="hljs-attribute">font-size</span>: <span class="hljs-number">36px</span>;}
+<span class="hljs-selector-class">.middle</span>{<span class="hljs-attribute">font-size</span>: <span class="hljs-number">20px</span>;}
+<span class="hljs-selector-class">.small</span>{<span class="hljs-attribute">font-size</span>: <span class="hljs-number">8px</span>;}
+
+&lt;<span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">big</span>"&gt;测试&lt;/<span class="hljs-selector-tag">p</span>&gt;
+&lt;<span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">small</span>"&gt;标题&lt;/<span class="hljs-selector-tag">h1</span>&gt;
+</div></code></pre>
+<p>群组选择器</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">div</span>,<span class="hljs-selector-tag">p</span>,<span class="hljs-selector-tag">ul</span>,<span class="hljs-selector-id">#a1</span>,<span class="hljs-selector-class">.boy</span>,<span class="hljs-selector-tag">ol</span>{...}
+</div></code></pre>
+<p>子代选择器</p>
+<pre class="hljs"><code><div>&lt;<span class="hljs-selector-tag">ul</span>  <span class="hljs-selector-tag">id</span>="<span class="hljs-selector-tag">u</span>"&gt;
+    &lt;<span class="hljs-selector-tag">li</span>&gt;<span class="hljs-selector-tag">aa</span>&lt;/<span class="hljs-selector-tag">li</span>&gt;
+    &lt;<span class="hljs-selector-tag">li</span>&gt;<span class="hljs-selector-tag">bb</span>&lt;/<span class="hljs-selector-tag">li</span>&gt;
+&lt;/<span class="hljs-selector-tag">ul</span>&gt;
+
+&lt;<span class="hljs-selector-tag">ul</span>&gt;
+    &lt;<span class="hljs-selector-tag">li</span>&gt;<span class="hljs-selector-tag">aa</span>&lt;/<span class="hljs-selector-tag">li</span>&gt;
+    &lt;<span class="hljs-selector-tag">li</span>&gt;<span class="hljs-selector-tag">bb</span>&lt;/<span class="hljs-selector-tag">li</span>&gt;
+&lt;/<span class="hljs-selector-tag">ul</span>&gt;
+
+<span class="hljs-selector-id">#u</span>&gt;<span class="hljs-selector-tag">li</span>{...}
+</div></code></pre>
+<p>后代选择器</p>
+<pre class="hljs"><code><div>&lt;<span class="hljs-selector-tag">div</span>  <span class="hljs-selector-tag">id</span>="<span class="hljs-selector-tag">d</span>"&gt;
+    &lt;<span class="hljs-selector-tag">p</span>&gt;<span class="hljs-selector-tag">aaaaa</span>&lt;/<span class="hljs-selector-tag">p</span>&gt;
+    &lt;<span class="hljs-selector-tag">div</span>&gt;
+        &lt;<span class="hljs-selector-tag">p</span>&gt;<span class="hljs-selector-tag">bbb</span>&lt;/<span class="hljs-selector-tag">p</span>&gt;
+    &lt;/<span class="hljs-selector-tag">div</span>&gt;
+&lt;/<span class="hljs-selector-tag">div</span>&gt;
+
+<span class="hljs-selector-id">#d</span>&gt;<span class="hljs-selector-tag">div</span>&gt;<span class="hljs-selector-tag">p</span>{<span class="hljs-attribute">color</span>:red;}
+效果：<span class="hljs-selector-tag">bbb</span>变红色
+
+<span class="hljs-selector-id">#d</span>&gt;<span class="hljs-selector-tag">p</span>{<span class="hljs-attribute">color</span>:green;}
+效果：<span class="hljs-selector-tag">aaa</span>是绿色
+
+<span class="hljs-selector-id">#d</span> <span class="hljs-selector-tag">p</span>{<span class="hljs-attribute">color</span>:blue;}
+效果：<span class="hljs-selector-tag">aaa</span>、<span class="hljs-selector-tag">bbb</span>都是蓝色
+</div></code></pre>
+<p>伪类选择器</p>
+<pre class="hljs"><code><div>&lt;<span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">href</span>="#"&gt;百度&lt;/<span class="hljs-selector-tag">a</span>&gt;
+
+默认状态
+<span class="hljs-selector-tag">a</span>{...}
+鼠标悬停状态
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span>{...}
+鼠标按住不放
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span>{...}
+访问过后
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span>{...}
+</div></code></pre>
+<h2 id="%E5%B1%85%E4%B8%AD">居中</h2>
+<p>让块级元素在页面里左右居中</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">margin</span>: 0    <span class="hljs-selector-tag">auto</span>;
+       上下  左右
+
+左右设置为<span class="hljs-selector-tag">auto</span>：
+系统会自动计算剩余宽度，然后除以2
+</div></code></pre>
+<p>让文字在块级元素里居中</p>
+<pre class="hljs"><code><div>让 <span class="hljs-selector-tag">line-height</span> 和 <span class="hljs-selector-tag">height</span> 一样
+
+块级元素{
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">100px</span>;
+}
+</div></code></pre>
+<p>注释</p>
+<pre class="hljs"><code><div>html的注释
+&lt;!--注释的内容--&gt;
+
+css的注释
+/*注释的内容*/
+</div></code></pre>
+<h1 id="%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91">备份文件到另一台电脑</h1>
+<ol>
+<li>把要备份的文件，打包压缩</li>
+</ol>
+<pre class="hljs"><code><div> tar  -zcvf  guoxn.tar.gz   a.txt  b.txt
+</div></code></pre>
+<ol start="2">
+<li>远程拷贝到服务器的对应目录</li>
+</ol>
+<pre class="hljs"><code><div>scp  guoxn.tar.gz   student@176.4.15.38:/home/student/backup
+密码：redhat
+</div></code></pre>
+<ol start="3">
+<li>从远程机器上，把文件复制到本机的当前目录</li>
+</ol>
+<pre class="hljs"><code><div>scp  student@176.4.15.38:/home/student/backup/guoxn.tar.gz   .
+密码：redhat
+
+如果资源放在了web服务器里，也可以按以下方法下载：
+wget   http://176.4.15.38/guoxn.tar.gz
+</div></code></pre>
+
+</body>
+</html>
